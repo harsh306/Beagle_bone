@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:id="@+id/scrollView1"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="false">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lvExp"
+            android:layout_alignParentTop="true">
+            <AutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fromAutoComplete"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/from"
+                android:layout_toEndOf="@+id/from" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="From:    "
+                android:id="@+id/from"
+                android:layout_alignBottom="@+id/fromAutoComplete"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="To:"
+                android:id="@+id/to"
+                android:layout_below="@+id/from"
+                android:layout_alignLeft="@+id/from"
+                android:layout_alignStart="@+id/from"
+                android:layout_marginTop="31dp" />
+
+            <AutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/toAutoComplete"
+                android:layout_alignTop="@+id/to"
+                android:layout_alignLeft="@+id/fromAutoComplete"
+                android:layout_alignStart="@+id/fromAutoComplete"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text=""
+                android:id="@+id/dateText"
+                android:layout_below="@+id/toAutoComplete"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="35dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/journeydate"
+                android:onClick="date"
+                android:alpha="0"
+                android:clickable="true"
+                android:layout_alignTop="@+id/dateText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:id="@+id/spinner"
+                android:layout_alignTop="@+id/journeydate"
+                android:layout_toRightOf="@+id/journeydate"
+                android:layout_toEndOf="@+id/journeydate"
+                android:spinnerMode="dropdown" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative">
+            <ExpandableListView
+                android:id="@+id/lvExp"
+                android:layout_height="220dp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="65dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:hint="Mobile Number"
+                android:id="@+id/editText2"
+                android:layout_above="@+id/fab"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:src="@android:drawable/ic_dialog_email"
+                android:layout_marginTop="62dp"
+                android:layout_alignTop="@+id/lvExp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>
