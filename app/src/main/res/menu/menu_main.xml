@@ -1,7 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.anurag.instabook.MainActivity">
+    tools:context="com.example.anurag.instabook.DisplayData">
+    <item
+        android:id="@+id/edit"
+        android:title="Edit"
+        app:showAsAction="ifRoom"/>
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

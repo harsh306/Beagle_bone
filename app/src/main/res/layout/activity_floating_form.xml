@@ -158,7 +158,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/noage"
-            android:text="age"
+            android:text=""
             android:layout_below="@+id/ageText"
             android:layout_alignLeft="@+id/ageText"
             android:layout_alignStart="@+id/ageText" />

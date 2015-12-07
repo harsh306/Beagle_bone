@@ -1626,4 +1626,5 @@
         <item>ACHALDA - ULD </item>
         <item>UDALGURI - ULG </item>
     </string-array>
+    <string name="title_activity_display_data2">InstaBook</string>
 </resources>

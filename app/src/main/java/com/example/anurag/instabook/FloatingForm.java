@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class FloatingForm extends Activity implements AdapterView.OnItemSelectedListener{
 
+    SQLDBhelper mydb;
 
     String berthPref,sex,message;
     Integer count;
@@ -30,6 +32,7 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_floating_form);
+        mydb = new SQLDBhelper(this);
 //        Button add=(Button)findViewById(R.id.button3);
         Intent intent = getIntent();
 
@@ -110,7 +113,7 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         String name=fullName.getText().toString()+"";
         String AGE=age.getText().toString()+"";
         String UID=aadharNo.getText().toString()+"";
-        if(age.equals("") && name.equals("")){
+        if(AGE.equals("") && name.equals("")){
             TextView forgotName= (TextView)findViewById(R.id.forgotName);
             forgotName.setTextColor(Color.parseColor("#f44336"));
             forgotName.setText("Enter name");
@@ -131,7 +134,7 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
             EditText forgotName2 = (EditText) findViewById(R.id.fullnametext);
             forgotName2.getBackground().setColorFilter(Color.parseColor("#f44336"), PorterDuff.Mode.SRC_ATOP);
         }
-       else if (age.equals("")) {
+       else if (AGE.equals("")) {
 
             TextView noage= (TextView)findViewById(R.id.noage);
             noage.setTextColor(Color.parseColor("#f44336"));
@@ -144,11 +147,9 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         // SQL Entires will be saved from here
 
 
-        else {
 
-            SQLDBhelper mydb;
+        else {
 //            SQLDBhelper2 tempStore;
-            mydb = new SQLDBhelper(this);
 //            tempStore=new SQLDBhelper2(this);
             mydb.insertContact(name, "", AGE, sex, berthPref);
 //            tempStore.insertContact(first+" "+last,"",AGE,sex,berthPref);

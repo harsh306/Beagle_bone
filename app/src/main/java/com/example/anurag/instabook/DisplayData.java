@@ -107,6 +107,22 @@ public class DisplayData extends AppCompatActivity implements AdapterView.OnItem
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
+                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+                    int childPosition = ExpandableListView.getPackedPositionChild(id);
+
+                    // You now have everything that you would as if this was an OnChildClickListener()
+                    // Add your logic here.
+
+                    // Return true as we are handling the event.
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     /*
