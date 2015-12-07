@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/scrollView1"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="false">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.anurag.irctcalpha.Form">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Full Name"
+            android:id="@+id/firstnametext"
+            android:backgroundTintMode="multiply"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/ageText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/fullnametext"
+            android:layout_below="@+id/firstnametext"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Age"
+            android:id="@+id/age"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/fullnametext"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/ageText"
+            android:layout_above="@+id/textView3"
+            android:layout_toRightOf="@+id/textView5"
+            android:layout_toEndOf="@+id/textView5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Gender   "
+            android:id="@+id/textView3"
+            android:layout_below="@+id/age"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="46dp" />
+
+        <RadioGroup
+            android:layout_width="100dp"
+            android:layout_height="58dp"
+            android:id="@+id/radioGroup"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_alignLeft="@+id/ageText"
+            android:layout_alignStart="@+id/ageText">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/radioButton2"
+                android:checked="false" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/radioButton"
+                android:checked="false" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Berth Preference"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/radioGroup"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="38dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Aadhar No."
+            android:id="@+id/textView5"
+            android:layout_marginTop="34dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/textView4" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/aadharno"
+            android:hint="optional"
+            android:layout_alignTop="@+id/textView5"
+            android:layout_toRightOf="@+id/textView4"
+            android:layout_toEndOf="@+id/textView4" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:onClick="Submit"
+            android:id="@+id/button2"
+            android:background="#b39ddb"
+            android:layout_below="@+id/aadharno"
+            android:layout_alignRight="@+id/aadharno"
+            android:layout_alignEnd="@+id/aadharno"
+            android:layout_marginTop="30dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/berthpref"
+            android:layout_above="@+id/aadharno"
+            android:layout_toRightOf="@+id/textView4"
+            android:layout_toEndOf="@+id/textView4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/forgotName"
+            android:layout_above="@+id/ageText"
+            android:layout_alignLeft="@+id/firstnametext"
+            android:layout_alignStart="@+id/firstnametext" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/noage"
+            android:text=""
+            android:layout_below="@+id/ageText"
+            android:layout_alignLeft="@+id/ageText"
+            android:layout_alignStart="@+id/ageText" />
+
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="View"-->
+        <!--android:onClick="viewTemp"-->
+        <!--android:id="@+id/button4"-->
+        <!--android:layout_below="@+id/textView6"-->
+        <!--android:layout_toRightOf="@+id/textView6"-->
+        <!--android:layout_toEndOf="@+id/textView6" />-->
+
+    </RelativeLayout>
+
+
+</ScrollView>
