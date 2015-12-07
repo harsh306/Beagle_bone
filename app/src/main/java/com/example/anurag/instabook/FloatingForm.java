@@ -101,45 +101,50 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         RadioButton genderButton;
         genderGroup=(RadioGroup)findViewById(R.id.radioGroup);
         int selectedId=genderGroup.getCheckedRadioButtonId();
-        if(selectedId==-1)
-            Toast.makeText(getApplicationContext(), "Enter Gender, Male/Female ", Toast.LENGTH_LONG).show();
 
-        else {
-            genderButton = (RadioButton) findViewById(selectedId);
-            sex = genderButton.getText().toString();
-            Toast.makeText(getApplicationContext(), sex, Toast.LENGTH_LONG).show();
-        }
+
+
+
+
 
         String name=fullName.getText().toString()+"";
         String AGE=age.getText().toString()+"";
         String UID=aadharNo.getText().toString()+"";
+        TextView forgotName= (TextView)findViewById(R.id.forgotName);
+        EditText forgotName2 = (EditText) findViewById(R.id.fullnametext);
+        TextView noage= (TextView)findViewById(R.id.noage);
+        EditText noage2 = (EditText) findViewById(R.id.ageText);
+        forgotName.setTextColor(Color.parseColor("#ffffff"));
+        forgotName2.getBackground().setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.SRC_ATOP);
+        forgotName.setText("");
         if(AGE.equals("") && name.equals("")){
-            TextView forgotName= (TextView)findViewById(R.id.forgotName);
+
             forgotName.setTextColor(Color.parseColor("#f44336"));
             forgotName.setText("Enter name");
-            EditText forgotName2 = (EditText) findViewById(R.id.fullnametext);
+
             forgotName2.getBackground().setColorFilter(Color.parseColor("#f44336"), PorterDuff.Mode.SRC_ATOP);
 
-            TextView noage= (TextView)findViewById(R.id.noage);
+
             noage.setTextColor(Color.parseColor("#f44336"));
             noage.setText("Enter age");
-            EditText noage2 = (EditText) findViewById(R.id.ageText);
+
             noage2.getBackground().setColorFilter(Color.parseColor("#f44336"), PorterDuff.Mode.SRC_ATOP);
 
         }
+        else  if(selectedId==-1)
+            Toast.makeText(getApplicationContext(), "Enter Gender, Male/Female ", Toast.LENGTH_LONG).show();
        else if(name.equals("")){
-            TextView forgotName= (TextView)findViewById(R.id.forgotName);
+
             forgotName.setTextColor(Color.parseColor("#f44336"));
             forgotName.setText("Enter name");
-            EditText forgotName2 = (EditText) findViewById(R.id.fullnametext);
+
             forgotName2.getBackground().setColorFilter(Color.parseColor("#f44336"), PorterDuff.Mode.SRC_ATOP);
         }
        else if (AGE.equals("")) {
 
-            TextView noage= (TextView)findViewById(R.id.noage);
+
             noage.setTextColor(Color.parseColor("#f44336"));
             noage.setText("Enter age");
-            EditText noage2 = (EditText) findViewById(R.id.ageText);
             noage2.getBackground().setColorFilter(Color.parseColor("#f44336"), PorterDuff.Mode.SRC_ATOP);
         }
 
@@ -151,6 +156,9 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         else {
 //            SQLDBhelper2 tempStore;
 //            tempStore=new SQLDBhelper2(this);
+            genderButton = (RadioButton) findViewById(selectedId);
+            sex = genderButton.getText().toString();
+            Toast.makeText(getApplicationContext(), sex, Toast.LENGTH_LONG).show();
             mydb.insertContact(name, "", AGE, sex, berthPref);
 //            tempStore.insertContact(first+" "+last,"",AGE,sex,berthPref);
             Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
