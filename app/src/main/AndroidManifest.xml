@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name=".InstantBook"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_instant_book"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
