@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,16 +62,19 @@ public class SQLDBhelper2 extends SQLiteOpenHelper {
         db.insert("temp", null, contentValues);
         return true;
     }
-
+    public int c=0;
     public Cursor getData(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from temp where id="+id+"", null );
+        Cursor res =  db.rawQuery("select * from temp where id=" + id + "", null);
+         c = res.getCount();
+       // System.out.print(c);
         return res;
     }
 
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);
+//        int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);
+        int numRows =(int) DatabaseUtils.longForQuery(db, "SELECT COUNT(*) FROM "+CONTACTS_TABLE_NAME, null);
         return numRows;
     }
 

@@ -117,8 +117,6 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
             public void onClick(View v) {
                 Toast.makeText(getContext(),"Date clicked",Toast.LENGTH_LONG).show();
-                DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getFragmentManager(),DATE_DIALOG_ID);
                 //noinspection deprecation
                 getActivity().showDialog(DATE_DIALOG_ID);
             }
