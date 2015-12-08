@@ -130,7 +130,7 @@
             android:text="Save"
             android:onClick="Submit"
             android:id="@+id/button2"
-            android:background="#b39ddb"
+            android:background="@color/colorAccent"
             android:layout_below="@+id/aadharno"
             android:layout_alignRight="@+id/aadharno"
             android:layout_alignEnd="@+id/aadharno"
