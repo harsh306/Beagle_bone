@@ -10,17 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b9e3d7-9a25-4e67-bdb9-ef8a3c271afe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_action_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_action_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_instant_book.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_instant_book_drawer.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_instant_book.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_instant_book.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_hello.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_form.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/instant_book.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_instant_book.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/NewForm.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/NewForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Insta_Book.iws" />
@@ -2240,7 +2229,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449573018235</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fragments 1.2&#10;Activity Update">
+      <created>1449575506660</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1449575506660</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2327,7 +2322,8 @@
     <MESSAGE value="Form Bug Fixes" />
     <MESSAGE value="Latest Version With Fragments" />
     <MESSAGE value="Fragments 1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fragments 1.2" />
+    <MESSAGE value="Fragments 1.2&#10;Activity Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fragments 1.2&#10;Activity Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
