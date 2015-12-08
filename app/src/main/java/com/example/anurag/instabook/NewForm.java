@@ -2,15 +2,15 @@ package com.example.anurag.instabook;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -19,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -27,7 +28,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class DisplayData2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link NewForm.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link NewForm#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,View.OnClickListener {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -36,30 +46,80 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
     String[] s_array,s_arrayTo;
     SQLDBhelper  handler;
     private TextView pDisplayDate;
-    private Button pPickDate;
+    public Button pPickDate;
     private int pYear;
     private int pMonth;
     private int pDay;
     /** This integer will uniquely define the dialog to be used for displaying date picker.*/
     static final int DATE_DIALOG_ID = 0;
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    View view;
+
+
+
+
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    private OnFragmentInteractionListener mListener;
+
+    public NewForm() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment NewForm.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static NewForm newInstance(String param1, String param2) {
+        NewForm fragment = new NewForm();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_data2);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view= inflater.inflate(R.layout.fragment_new_form, container, false);
 
         //Date Picking
-        pDisplayDate = (TextView) findViewById(R.id.dateText);
-        pPickDate = (Button) findViewById(R.id.journeydate);
+        pDisplayDate = (TextView)view.findViewById(R.id.dateText);
+        pPickDate = (Button) view.findViewById(R.id.journeydate);
 
         /** Listener for click event of the button */
         pPickDate.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View v) {
-                showDialog(DATE_DIALOG_ID);
+                Toast.makeText(getContext(),"Date clicked",Toast.LENGTH_LONG).show();
+                //noinspection deprecation
+                getActivity().showDialog(DATE_DIALOG_ID);
             }
         });
         /** Get the current date */
+
         final Calendar cal = Calendar.getInstance();
         pYear = cal.get(Calendar.YEAR);
         pMonth = cal.get(Calendar.MONTH);
@@ -68,38 +128,29 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
         /** Display the current date in the TextView */
         updateDisplay();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),FloatingForm.class);
-                startActivity(intent);
-            }
-        });
-
-        TextView date=(TextView)findViewById(R.id.dateText);
+        TextView date=(TextView)view.findViewById(R.id.dateText);
         String today= DateFormat.getDateInstance().format(new Date());
         date.setText(today);
 //        Auto Complete From
-        stationsFrom=(AutoCompleteTextView) findViewById(R.id.fromAutoComplete);
+        stationsFrom=(AutoCompleteTextView)view.findViewById(R.id.fromAutoComplete);
         s_array=getResources().getStringArray(R.array.Stations);
-        ArrayAdapter<String> stationAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,s_array);
+        ArrayAdapter<String> stationAdapter=new ArrayAdapter<String>(this.getContext() ,android.R.layout.simple_list_item_1,s_array);
         stationsFrom.setAdapter(stationAdapter);
         stationsFrom.setThreshold(3);
 
         // Auto Complete To
-        stationsTo=(AutoCompleteTextView) findViewById(R.id.toAutoComplete);
+        stationsTo=(AutoCompleteTextView) view.findViewById(R.id.toAutoComplete);
         s_arrayTo=getResources().getStringArray(R.array.Stations);
-        ArrayAdapter<String> stationAdapterTo=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,s_arrayTo);
+        ArrayAdapter<String> stationAdapterTo=new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1,s_arrayTo);
         stationsTo.setAdapter(stationAdapterTo);
         stationsTo.setThreshold(3);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>();
         categories.add("E-Ticket");
         categories.add("i-Ticket");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, categories);
 
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -107,12 +158,10 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
-        // get the listview
-
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
         // preparing list data
         prepareListData();
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        listAdapter = new ExpandableListAdapter(this.getContext(), listDataHeader, listDataChild);
         // setting list adapter
         expListView.setAdapter(listAdapter);
         expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -127,13 +176,63 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
                 return false;
             }
         });
+
+
+
+        return view;
+    }
+
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p/>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+        public  void newForm(String s);
     }
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        handler=new SQLDBhelper(this);
+        handler=new SQLDBhelper(this.getContext());
         String array=handler.dBtoString();
         String [] s = array.split(",");
 
@@ -151,7 +250,6 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
         }
 
     }
-
     /** Callback received when the user "picks" a date in the dialog */
     private DatePickerDialog.OnDateSetListener pDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
@@ -178,7 +276,7 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DATE_DIALOG_ID:
-                return new DatePickerDialog(this,
+                return new DatePickerDialog(this.getContext(),
                         pDateSetListener,
                         pYear, pMonth, pDay);
         }
@@ -188,7 +286,7 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
 
 
     public void date(View v){
-        Intent i = new Intent(getApplicationContext(),FloatingDatePicker.class);
+        Intent i = new Intent(getActivity().getApplicationContext(),FloatingDatePicker.class);
         startActivity(i);
     }
 
@@ -203,13 +301,13 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
     }
 
     String msg = "Android : ";
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         Log.d(msg, "The onStart() event");prepareListData();
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        ExpandableListView expListView = (ExpandableListView)getView().findViewById(R.id.lvExp);
         // preparing list data
         prepareListData();
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        listAdapter = new ExpandableListAdapter(this.getContext(), listDataHeader, listDataChild);
         // setting list adapter
         expListView.setAdapter(listAdapter);
         expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -227,66 +325,5 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
-
-    /** Called when the activity has become visible. */
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    /** Called when another activity is taking focus. */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(msg, "The onPause() event");
-    }
-
-    /** Called when the activity is no longer visible. */
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(msg, "The onStop() event");
-    }
-
-    /** Called just before the activity is destroyed. */
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(msg, "The onDestroy() event");
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        else if(id==R.id.edit){
-
-            return true;
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
-    public boolean onPrepareOptionsMenu(Menu menu){
-        MenuItem registrar = menu.findItem(R.id.edit);
-        registrar.setVisible(true);
-        return true;
-    }
 
 }

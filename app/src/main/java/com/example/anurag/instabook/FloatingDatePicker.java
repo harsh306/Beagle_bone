@@ -1,8 +1,6 @@
 package com.example.anurag.instabook;
 
 
-import java.util.Calendar;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -13,6 +11,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class FloatingDatePicker extends Activity {
     /** Private members of the class */
