@@ -2,8 +2,6 @@ package com.example.anurag.instabook;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-//import android.app.DialogFragment;
-import android.support.v4.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TimeZone;
 
 
 /**
@@ -106,11 +105,17 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_new_form, container, false);
-
-
+        Calendar cal = Calendar.getInstance(TimeZone.getDefault());
         //Date Picking
         pDisplayDate = (TextView)view.findViewById(R.id.dateText);
         pPickDate = (Button) view.findViewById(R.id.journeydate);
+        final DatePickerDialog datePicker = new DatePickerDialog(getContext(),
+                R.style.AppTheme, datePickerListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH));
+        datePicker.setCancelable(false);
+        datePicker.setTitle("Select the date");
 
         /** Listener for click event of the button */
         pPickDate.setOnClickListener(new View.OnClickListener() {
@@ -118,12 +123,16 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
             public void onClick(View v) {
                 Toast.makeText(getContext(),"Date clicked",Toast.LENGTH_LONG).show();
                 //noinspection deprecation
+                datePicker.show();
                 getActivity().showDialog(DATE_DIALOG_ID);
             }
         });
         /** Get the current date */
 
-        final Calendar cal = Calendar.getInstance();
+
+
+// Create the DatePickerDialog instance
+
         pYear = cal.get(Calendar.YEAR);
         pMonth = cal.get(Calendar.MONTH);
         pDay = cal.get(Calendar.DAY_OF_MONTH);
@@ -202,7 +211,19 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
                     + " must implement OnFragmentInteractionListener");
         }
     }
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
 
+        // when dialog box is closed, below method will be called.
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            String year1 = String.valueOf(selectedYear);
+            String month1 = String.valueOf(selectedMonth + 1);
+            String day1 = String.valueOf(selectedDay);
+            TextView tvDt = (TextView)getView().findViewById(R.id.dateText);
+            tvDt.setText(day1 + "-" + month1 + "-" + year1);
+
+        }
+    };
     @Override
     public void onDetach() {
         super.onDetach();
@@ -214,8 +235,6 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
 
     }
-
-
 
     /**
      * This interface must be implemented by activities that contain this
