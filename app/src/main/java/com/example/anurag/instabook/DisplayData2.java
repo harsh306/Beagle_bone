@@ -61,7 +61,6 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
                 showDialog(DATE_DIALOG_ID);
             }
         });
-
         /** Get the current date */
         final Calendar cal = Calendar.getInstance();
         pYear = cal.get(Calendar.YEAR);
@@ -79,6 +78,7 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
             }
         });
+
         TextView date=(TextView)findViewById(R.id.dateText);
         String today= DateFormat.getDateInstance().format(new Date());
         date.setText(today);
