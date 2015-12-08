@@ -1,0 +1,138 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frameForm"
+    tools:context="com.example.anurag.instabook.NewForm">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.anurag.instabook.DisplayData2"
+        tools:showIn="@layout/activity_display_data2">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentTop="true">
+
+                <AutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fromAutoComplete"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/from"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="From:    "
+                    android:id="@+id/from"
+                    android:layout_alignBottom="@+id/fromAutoComplete"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="To:"
+                    android:id="@+id/to"
+                    android:layout_below="@+id/from"
+                    android:layout_alignLeft="@+id/from"
+                    android:layout_alignStart="@+id/from"
+                    android:layout_marginTop="31dp" />
+
+                <AutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toAutoComplete"
+                    android:layout_alignTop="@+id/to"
+                    android:layout_alignLeft="@+id/fromAutoComplete"
+                    android:layout_alignStart="@+id/fromAutoComplete"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text=""
+                    android:id="@+id/dateText"
+                    android:layout_below="@+id/toAutoComplete"
+                    android:layout_marginTop="35dp"
+                    android:layout_alignLeft="@+id/to"
+                    android:layout_alignStart="@+id/to" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:id="@+id/journeydate"
+                    android:alpha="1"
+                    android:layout_alignTop="@+id/dateText"
+                    android:layout_alignLeft="@+id/to"
+                    android:layout_alignStart="@+id/to" />
+
+                <Spinner
+                    android:layout_width="170dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/spinner"
+                    android:layout_alignTop="@+id/journeydate"
+                    android:spinnerMode="dropdown"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:hint="Mobile Number"
+                    android:id="@+id/editText"
+                    android:layout_below="@+id/spinner"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="220dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/scrollView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

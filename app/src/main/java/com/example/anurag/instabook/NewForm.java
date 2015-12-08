@@ -2,6 +2,7 @@ package com.example.anurag.instabook;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -61,7 +62,6 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
 
 
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -104,6 +104,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_new_form, container, false);
+        android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
 
         //Date Picking
         pDisplayDate = (TextView)view.findViewById(R.id.dateText);
