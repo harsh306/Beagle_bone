@@ -2,6 +2,8 @@ package com.example.anurag.instabook;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+//import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -104,7 +106,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_new_form, container, false);
-        android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
+
 
         //Date Picking
         pDisplayDate = (TextView)view.findViewById(R.id.dateText);
@@ -115,6 +117,8 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
             public void onClick(View v) {
                 Toast.makeText(getContext(),"Date clicked",Toast.LENGTH_LONG).show();
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(),DATE_DIALOG_ID);
                 //noinspection deprecation
                 getActivity().showDialog(DATE_DIALOG_ID);
             }
@@ -212,6 +216,8 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
 
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
