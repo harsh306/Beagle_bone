@@ -131,6 +131,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter implements 
                 switch (item.getItemId()) {
                     case R.id.menu_edit:
                         Toast.makeText(_context,"Item will be edited"+new Integer(groupPosition).toString(),Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(_context,EditForm.class);
+                        _context.startActivity(i);
                         return true;
                     case R.id.menu_delete:
                         Toast.makeText(_context,"Item will be deleted"+new Integer(groupPosition).toString(),Toast.LENGTH_LONG).show();

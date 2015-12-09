@@ -13,25 +13,31 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DisplayData" />
-        <activity android:name=".FloatingDatePicker" />
+        <activity android:name=".FloatingDatePicker"
+            android:theme="@style/AppTheme.PopupOverlay"/>
         <activity android:name=".FloatingForm" />
         <activity
             android:name=".DisplayData2"
             android:label="@string/title_activity_display_data2"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".InstantBook"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_instant_book"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".EditForm"
+
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"
+        >
+
         </activity>
     </application>
 
