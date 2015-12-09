@@ -134,8 +134,7 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
 
         // Adding child data
         handler=new SQLDBhelper(this);
-        String array=handler.dBtoString();
-        String [] s = array.split(",");
+
 
         List<Passanger> l =handler.dBtoPassanger();
         Passanger [] p= l.toArray(new Passanger[l.size()]);
@@ -145,7 +144,7 @@ public class DisplayData2 extends AppCompatActivity implements AdapterView.OnIte
             List<String> top250 = new ArrayList<String>();
             top250.add("Age :"+p[i].getAge());
             top250.add("Sex :"+p[i].getSex());
-            top250.add("Phone :"+p[i].getPhone());
+            top250.add("UID :"+p[i].getUID());
             top250.add("Berth Preference :"+p[i].getBerth());
             listDataChild.put(listDataHeader.get(i), top250);
         }

@@ -9,7 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ActionMode;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,6 +23,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +35,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
+import java.util.Vector;
 
 
 /**
@@ -39,7 +46,7 @@ import java.util.TimeZone;
  * Use the {@link NewForm#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,View.OnClickListener {
+public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,ActionMode.Callback,View.OnClickListener {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -176,14 +183,28 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         listAdapter = new ExpandableListAdapter(this.getContext(), listDataHeader, listDataChild);
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        registerForContextMenu(expListView.getRootView());
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+
+                Toast.makeText(getContext(),new Integer(groupPosition).toString(),Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
         expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View vw, int position, long id) {
                 if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
                     int groupPosition = ExpandableListView.getPackedPositionGroup(id);
                     int childPosition = ExpandableListView.getPackedPositionChild(id);
+                    ImageButton edit=(ImageButton) vw.findViewById(R.id.editlist);
+                    // Start the CAB using the ActionMode.Callback defined above
 
+
+                    vw.setSelected(true);
                     return true;
+
                 }
                 return false;
             }
@@ -193,13 +214,13 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
         return view;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
+        // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -236,6 +257,26 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
     }
 
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -257,20 +298,20 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
         // Adding child data
         handler=new SQLDBhelper(this.getContext());
-        String array=handler.dBtoString();
-        String [] s = array.split(",");
+
 
         List<Passanger> l =handler.dBtoPassanger();
         Passanger [] p= l.toArray(new Passanger[l.size()]);
         Integer integer = new Integer(l.size());
         for (int i=0;i<integer;i++){
             listDataHeader.add(p[i].getName());
-            List<String> top250 = new ArrayList<String>();
-            top250.add("Age :"+p[i].getAge());
-            top250.add("Sex :"+p[i].getSex());
-            top250.add("Phone :"+p[i].getPhone());
-            top250.add("Berth Preference :"+p[i].getBerth());
-            listDataChild.put(listDataHeader.get(i), top250);
+            List<String> data = new ArrayList<String>();
+            data.add("Age :"+p[i].getAge());
+            data.add("Sex :"+p[i].getSex());
+            data.add("UID :"+p[i].getUID());
+            data.add("Berth Preference :" + p[i].getBerth());
+            listDataChild.put(listDataHeader.get(i), data);
+
         }
 
     }

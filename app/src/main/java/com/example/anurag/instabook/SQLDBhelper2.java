@@ -109,7 +109,7 @@ public class SQLDBhelper2 extends SQLiteOpenHelper {
                 p.setBerth(c.getString(c.getColumnIndex("berth")));
                 p.setName(c.getString(c.getColumnIndex("name")));
                 p.setAge(c.getString(c.getColumnIndex("age")));
-                p.setPhone(c.getString(c.getColumnIndex("phone")));
+                p.setUID(c.getString(c.getColumnIndex("UID")));
                 p.setSex(c.getString(c.getColumnIndex("sex")));
 
             }

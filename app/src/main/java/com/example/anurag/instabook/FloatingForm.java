@@ -22,7 +22,7 @@ import java.util.List;
 public class FloatingForm extends Activity implements AdapterView.OnItemSelectedListener{
 
     SQLDBhelper mydb;
-
+    String timestamp;
     String berthPref,sex,message;
     Integer count;
     List<Passanger> p2=new ArrayList<Passanger>();
@@ -33,7 +33,6 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         setContentView(R.layout.activity_floating_form);
         mydb = new SQLDBhelper(this);
 //        Button add=(Button)findViewById(R.id.button3);
-        Intent intent = getIntent();
 
 //        add.setText("Add New Passanger ");
         count=new Integer("1");
@@ -158,7 +157,7 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
             genderButton = (RadioButton) findViewById(selectedId);
             sex = genderButton.getText().toString();
             Toast.makeText(getApplicationContext(), sex, Toast.LENGTH_LONG).show();
-            mydb.insertContact(name, "", AGE, sex, berthPref);
+            mydb.insertContact(name,AGE, sex, berthPref,UID);
 //            tempStore.insertContact(first+" "+last,"",AGE,sex,berthPref);
             Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
             finish();

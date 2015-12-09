@@ -34,7 +34,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
         db.execSQL(
                 "create table passes " +
-                        "(id integer primary key autoincrement, name text,phone text,age text, sex text , berth text)"
+                        "(id integer primary key autoincrement, name text,age text, sex text , berth text,uid text,timestamp text)"
         );
     }
 
@@ -45,14 +45,14 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String phone, String age, String sex,String berth)
+    public boolean insertContact  (String name, String age, String sex,String berth,String uid)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
-        contentValues.put("phone", phone);
+        contentValues.put("uid",uid);
         contentValues.put("age", age);
-        contentValues.put("sex", sex);
+        contentValues.put("gender", sex);
         contentValues.put("berth", berth);
         db.insert("passes", null, contentValues);
         return true;
@@ -70,24 +70,24 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public String dBtoString(){
-        String dbString = "";
-        SQLiteDatabase db = getWritableDatabase();
-        String query="Select * from passes where 1";
-        Cursor c = db.rawQuery(query,null);
-        c.moveToFirst();
-        while(!c.isAfterLast()){
-            if(c.getString(c.getColumnIndex("name"))!=null){
-                dbString+=c.getString(c.getColumnIndex("name"))+","+c.getString(c.getColumnIndex("age"))+","+c.getString(c.getColumnIndex("sex"))+","+c.getString(c.getColumnIndex("phone"));
-                dbString+="\n \n \n";
-
-            }
-            c.moveToNext();
-
-        }
-        db.close();
-        return dbString;
-    }
+//    public String dBtoString(){
+//        String dbString = "";
+//        SQLiteDatabase db = getWritableDatabase();
+//        String query="Select * from passes";
+//        Cursor c = db.rawQuery(query,null);
+//        c.moveToFirst();
+//        while(!c.isAfterLast()){
+//            if(c.getString(c.getColumnIndex("name"))!=null){
+//                dbString+=c.getString(c.getColumnIndex("name"))+","+c.getString(c.getColumnIndex("age"))+","+c.getString(c.getColumnIndex("sex"))+","+c.getString(c.getColumnIndex("uid"));
+//                dbString+="\n \n \n";
+//
+//            }
+//            c.moveToNext();
+//
+//        }
+//        db.close();
+//        return dbString;
+//    }
     public List<Passanger> dBtoPassanger(){
         List<Passanger> p2=new ArrayList<Passanger>();
         String query="Select * from passes where 1";
@@ -101,8 +101,8 @@ public class SQLDBhelper extends SQLiteOpenHelper {
                 p.setBerth(c.getString(c.getColumnIndex("berth")));
                 p.setName(c.getString(c.getColumnIndex("name")));
                 p.setAge(c.getString(c.getColumnIndex("age")));
-                p.setPhone(c.getString(c.getColumnIndex("phone")));
-                p.setSex(c.getString(c.getColumnIndex("sex")));
+                p.setUID(c.getString(c.getColumnIndex("uid")));
+                p.setSex(c.getString(c.getColumnIndex("gender")));
 
             }
             c.moveToNext();
@@ -113,12 +113,12 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         return p2;
     }
 
-    public boolean updateContact (Integer id, String name, String phone, String age, String sex,String berth)
+    public boolean updateContact (Integer id, String name,  String age, String sex,String berth,String uid)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
-        contentValues.put("phone", phone);
+        contentValues.put("uid", uid);
         contentValues.put("age", age);
         contentValues.put("sex", sex);
         contentValues.put("berth", berth);

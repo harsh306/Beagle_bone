@@ -1,5 +1,7 @@
 package com.example.anurag.instabook;
 
+import android.app.ActionBar;
+import android.app.Dialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -13,21 +15,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ActionMode;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 public class InstantBook extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instant_book);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +81,9 @@ public class InstantBook extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.instant_book, menu);
+        MenuItem save=menu.findItem(R.id.save);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -97,6 +104,7 @@ public class InstantBook extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         Class fragmentClass=null;
+
         int id = item.getItemId();
         NewForm firstFragment = new NewForm();
         HelloFragment secondFragment= new HelloFragment();
@@ -112,24 +120,30 @@ public class InstantBook extends AppCompatActivity
 
 
         if (id == R.id.nav_camera) {
-
-            // Handle the camera action
             android.support.v4.app.FragmentManager fragmentManagera = getSupportFragmentManager();
             fragmentManagera.beginTransaction().replace(R.id.flContent,firstFragment).commit();
-
             fragmentTransaction.addToBackStack(null);
 
         } else if (id == R.id.nav_gallery) {
             android.support.v4.app.FragmentManager fragmentManagera = getSupportFragmentManager();
             fragmentManagera.beginTransaction().replace(R.id.flContent,secondFragment).commit();
-
             fragmentTransaction.addToBackStack(null);
+
 
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Download InstaBook");
+            sendIntent.setType("text/plain");
+            Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+            dialog.show();
+            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.app_name)));
 
         } else if (id == R.id.nav_send) {
 
@@ -144,11 +158,101 @@ public class InstantBook extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+//    public void onCreateContextMenu(ContextMenu menu, View v,
+//                                    ContextMenu.ContextMenuInfo menuInfo) {
+//        super.onCreateContextMenu(menu, v, menuInfo);
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.context_menu, menu);
+//    }
+//    public boolean onContextItemSelected(MenuItem item) {
+//        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+//        switch (item.getItemId()) {
+//            case R.id.edit:
+//
+//                return true;
+//            case R.id.save:
+//                return true;
+//            default:
+//                return super.onContextItemSelected(item);
+//        }
+//    }
+    private ActionMode mActionMode;
+//    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+//
+//        // Called when the action mode is created; startActionMode() was called
+//        @Override
+//        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//            // Inflate a menu resource providing context menu items
+//            MenuInflater inflater = mode.getMenuInflater();
+//            inflater.inflate(R.menu.context_menu, menu);
+//            return true;
+//        }
+//
+//        // Called each time the action mode is shown. Always called after onCreateActionMode, but
+//        // may be called multiple times if the mode is invalidated.
+//        @Override
+//        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+//            return false; // Return false if nothing is done
+//        }
+//
+//        // Called when the user selects a contextual menu item
+//        @Override
+//        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+//            switch (item.getItemId()) {
+//                case R.id.save:
+//                    mode.finish(); // Action picked, so close the CAB
+//                    return true;
+//                default:
+//                    return false;
+//            }
+//        }
+//
+//        // Called when the user exits the action mode
+//        @Override
+//        public void onDestroyActionMode(ActionMode mode) {
+//            mActionMode = null;
+//        }
+//    };
     public void  newForm(String string){
 
     }
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        MenuInflater inflater = mode.getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
+        return true;
+
+
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+
+     return false;
+
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.save:
+                Toast.makeText(getApplicationContext(),"Did it ",Toast.LENGTH_LONG).show();
+                mode.finish(); // Action picked, so close the CAB
+                return true;
+            default:
+                return false;
+
+    }
+
+
+}
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
 
     }
 }
