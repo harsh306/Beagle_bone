@@ -11,6 +11,9 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -27,4 +30,21 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:recyclerview-v7:23.1.1'
+}
+
+dependencies{
+    androidTestCompile fileTree(dir: 'libs', include: ['robotium-solo-5.5.3.jar'])
+    androidTestCompile('com.squareup:fest-android:1.0.8') {
+        exclude module: 'support-v4'
+    }
+    androidTestCompile('com.google.code.gson:gson:2.2.4')
+    androidTestCompile('com.jayway.android.robotium:robotium-solo:5.1')
+    androidTestCompile('com.google.mockwebserver:mockwebserver:20130706')
+    androidTestCompile('com.google.dexmaker:dexmaker:1.0')
+    androidTestCompile('com.google.dexmaker:dexmaker-mockito:1.0') {
+        exclude module: 'hamcrest-core'
+        exclude module: 'objenesis'
+        exclude module: 'mockito-core'
+    }
+    androidTestCompile('org.mockito:mockito-all:+')
 }

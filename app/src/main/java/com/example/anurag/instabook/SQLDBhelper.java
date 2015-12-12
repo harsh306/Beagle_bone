@@ -16,6 +16,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "MYDB.db";
     public static final String CONTACTS_TABLE_NAME = "passes";
+    public static final String CONTACTS_TABLE_NAME2 = "from_to";
     public static final String CONTACTS_COLUMN_ID = "id";
     public static final String CONTACTS_COLUMN_NAME = "name";
     public static final String CONTACTS_COLUMN_AGE = "age";
@@ -34,6 +35,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
     public SQLDBhelper(Context context)
     {
         super(context, DATABASE_NAME, null, 1);
+
     }
 
     @Override
@@ -45,7 +47,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         );
         db.execSQL(
                 "create table from_to " +
-                        "(id integer primary key autoincrement,form_name text,from_s text,to_s text,date text ,class text,quota text,phone text,ticket_t text,count integer)"
+                        "(id integer primary key autoincrement,form_name text,from_s text,to_s text,date text ,class_t text,quota text,phone text,ticket_t text,count integer,trainno text,train_n text,timestamp text)"
         );
     }
 
@@ -53,6 +55,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
         db.execSQL("DROP TABLE IF EXISTS passes");
+        //db.execSQL("DROP TABLE IF EXISTS from_to");
         onCreate(db);
     }
 
@@ -69,7 +72,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         db.insert("passes", null, contentValues);
         return true;
     }
-    public boolean insertForm  (String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t)
+    public boolean insertForm (String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t,String trainno)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -81,8 +84,8 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("date",date);
         contentValues.put("phone",phone);
         contentValues.put("ticket_t",ticket_t);
-
-        db.insert("passes", null, contentValues);
+        contentValues.put("trainno",trainno);
+        db.insert("from_to", null, contentValues);
         return true;
     }
 
@@ -103,7 +106,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
     }
     public int numberOfRowsForm(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, "from_to");
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME2);
         return numRows;
     }
     //    public String dBtoString(){
@@ -203,7 +206,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("ticket_t",ticket_t);
         contentValues.put("count",count);
 
-        db.update("passes", contentValues, "id = ? ", new String[]{Integer.toString(id)});
+        db.update("from_to", contentValues, "id = ? ", new String[]{Integer.toString(id)});
         return true;
     }
 

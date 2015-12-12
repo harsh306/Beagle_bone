@@ -2,6 +2,26 @@
     
     <string name="app_name">InstaBook</string>
     <string name="action_settings">Settings</string>
+    <string-array name="class_t">
+        <item>Select Class</item>
+        <item>FIRST AC (1A)</item>
+        <item>EXECUTIVE CLASS (EC)</item>
+        <item>SECOND AC (2A)</item>
+        <item>THIRD AC (3A)</item>
+        <item>THIRD AC ECONOMY (3E)</item>
+        <item>CHAIR CAR (CC)</item>
+        <item>SLEEPER CLASS (SL)</item>
+        <item>SECOND SITTING (2S)</item>
+        </string-array>
+    <string-array name="quota">
+        <item>Select Quota</item>
+       <item> GENERAL</item>
+        <item>PREMIUM TATKAL</item>
+        <item>PHYSICALLY HANDICAP</item>
+        <item>LADIES</item>
+         <item>TATKAL</item>
+        </string-array>
+
     <string-array name="Stations">
 
         <item>AMLAI - AAL </item>

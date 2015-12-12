@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -23,11 +24,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class InstantBook extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener, ExpandableListViewFragment.OnFragmentInteractionListener{
-
+    protected NewForm.OnBackPressedListener onBackPressedListener;
+    public void setOnBackPressedListener(NewForm.OnBackPressedListener onBackPressedListener) {
+        this.onBackPressedListener = onBackPressedListener;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
@@ -35,6 +40,10 @@ public class InstantBook extends AppCompatActivity
         setContentView(R.layout.activity_instant_book);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button btn =(Button)findViewById(R.id.button5);
+
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,15 +75,16 @@ public class InstantBook extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-    public void newForm(){
-        Toast.makeText(this,"new form",Toast.LENGTH_LONG).show();
-    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
+        /*if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);*/
+        if (onBackPressedListener != null)
+           // Log.e("hi","hi");
+            onBackPressedListener.doBack();
+         else {
             super.onBackPressed();
         }
     }
@@ -167,7 +177,7 @@ public class InstantBook extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-//    public void onCreateContextMenu(ContextMenu menu, View v,
+    //    public void onCreateContextMenu(ContextMenu menu, View v,
 //                                    ContextMenu.ContextMenuInfo menuInfo) {
 //        super.onCreateContextMenu(menu, v, menuInfo);
 //        MenuInflater inflater = getMenuInflater();
@@ -186,7 +196,7 @@ public class InstantBook extends AppCompatActivity
 //        }
 //    }
     private ActionMode mActionMode;
-//    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+    //    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
 //
 //        // Called when the action mode is created; startActionMode() was called
 //        @Override
@@ -230,6 +240,11 @@ public class InstantBook extends AppCompatActivity
     }
 
     @Override
+    public void show() {
+
+    }
+
+    @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         MenuInflater inflater = mode.getMenuInflater();
         inflater.inflate(R.menu.context_menu, menu);
@@ -241,7 +256,7 @@ public class InstantBook extends AppCompatActivity
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
 
-     return false;
+        return false;
 
     }
 
@@ -255,10 +270,10 @@ public class InstantBook extends AppCompatActivity
             default:
                 return false;
 
+        }
+
+
     }
-
-
-}
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
