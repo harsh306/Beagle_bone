@@ -66,7 +66,9 @@ public class InstantBook extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
+    public void newForm(){
+        Toast.makeText(this,"new form",Toast.LENGTH_LONG).show();
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -194,7 +194,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     public void refresh(int i){
 
     }
-        // TODO: Rename method, update argument and hook method into UI event
+    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
 //        if (mListener != null) {
 //            mListener.onFragmentInteraction(uri);
@@ -345,7 +345,8 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     String msg = "Android : ";
     public void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event");prepareListData();
+        Log.d(msg, "The onStart() event");
+        prepareListData();
 //        ExpandableListView expListView = (ExpandableListView)getView().findViewById(R.id.lvExp);
 //        // preparing list data
 //        prepareListData();

@@ -35,7 +35,7 @@ public class ExpandableListAdapter2 extends BaseExpandableListAdapter implements
 
 
     public ExpandableListAdapter2(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<String>> listChildData) {
+                                  HashMap<String, List<String>> listChildData) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;

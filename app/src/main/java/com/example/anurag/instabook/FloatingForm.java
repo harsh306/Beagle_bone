@@ -134,14 +134,14 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         }
         else  if(selectedId==-1)
             Toast.makeText(getApplicationContext(), "Enter Gender, Male/Female ", Toast.LENGTH_LONG).show();
-       else if(name.equals("")){
+        else if(name.equals("")){
 
             forgotName.setTextColor(Color.parseColor("#f44336"));
             forgotName.setText("Enter name");
 
             forgotName2.getBackground().setColorFilter(Color.parseColor("#f44336"), PorterDuff.Mode.SRC_ATOP);
         }
-       else if (AGE.equals("")) {
+        else if (AGE.equals("")) {
 
 
             noage.setTextColor(Color.parseColor("#f44336"));

@@ -155,6 +155,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter implements 
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-       return true;
+        return true;
     }
 }

@@ -21,7 +21,14 @@ public class SQLDBhelper extends SQLiteOpenHelper {
     public static final String CONTACTS_COLUMN_AGE = "age";
     public static final String CONTACTS_COLUMN_SEX = "sex";
     public static final String CONTACTS_COLUMN_BERTH = "berth";
+    public static final String CONTACTS_COLUMN_CLASS = "class";
+    public static final String CONTACTS_COLUMN_QUOTA = "quota";
+    public static final String CONTACTS_COLUMN_FORM_NAME = "form_name";
+    public static final String CONTACTS_COLUMN_FROM = "from_s";
+    public static final String CONTACTS_COLUMN_TO = "to_s";
+    public static final String CONTACTS_COLUMN_TICKET_TYPE = "ticket_t";
     public static final String CONTACTS_COLUMN_PHONE = "phone";
+    //public static final Integer CONTACTS_COLUMN_COUNT = count;
     private HashMap hp;
 
     public SQLDBhelper(Context context)
@@ -35,6 +42,10 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         db.execSQL(
                 "create table passes " +
                         "(id integer primary key autoincrement, name text,age text, gender text , berth text,uid text,timestamp text,userid text)"
+        );
+        db.execSQL(
+                "create table from_to " +
+                        "(id integer primary key autoincrement,form_name text,from_s text,to_s text,date text ,class text,quota text,phone text,ticket_t text,count integer)"
         );
     }
 
@@ -54,7 +65,23 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("age", age);
         contentValues.put("gender", sex);
         contentValues.put("berth", berth);
-        contentValues.put("userid",userid);
+        contentValues.put("userid", userid);
+        db.insert("passes", null, contentValues);
+        return true;
+    }
+    public boolean insertForm  (String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("form_name", form_name);
+        contentValues.put("from_s",from_s);
+        contentValues.put("to_s", to_s);
+        contentValues.put("class_t", class_t);
+        contentValues.put("quota", quota);
+        contentValues.put("date",date);
+        contentValues.put("phone",phone);
+        contentValues.put("ticket_t",ticket_t);
+
         db.insert("passes", null, contentValues);
         return true;
     }
@@ -64,14 +91,22 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         Cursor res =  db.rawQuery( "select * from passes where id="+id+"", null );
         return res;
     }
-
+    public Cursor getDataForm(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from from_to where id="+id+"", null );
+        return res;
+    }
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);
         return numRows;
     }
-
-//    public String dBtoString(){
+    public int numberOfRowsForm(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, "from_to");
+        return numRows;
+    }
+    //    public String dBtoString(){
 //        String dbString = "";
 //        SQLiteDatabase db = getWritableDatabase();
 //        String query="Select * from passes";
@@ -100,7 +135,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
     public Passanger getPassenger(Integer id){
         String query="Select * from passes where userid="+id.toString();
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.rawQuery(query,null);
+        Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
 
         Passanger p= new Passanger();
@@ -151,7 +186,24 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("age", age);
         contentValues.put("gender", sex);
         contentValues.put("berth", berth);
-        db.update("passes", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        db.update("passes", contentValues, "id = ? ", new String[]{Integer.toString(id)});
+        return true;
+    }
+    public boolean updateForm  (Integer id,String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t,Integer count)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("form_name", form_name);
+        contentValues.put("from_s",from_s);
+        contentValues.put("to_s", to_s);
+        contentValues.put("class_t", class_t);
+        contentValues.put("quota", quota);
+        contentValues.put("date",date);
+        contentValues.put("phone",phone);
+        contentValues.put("ticket_t",ticket_t);
+        contentValues.put("count",count);
+
+        db.update("passes", contentValues, "id = ? ", new String[]{Integer.toString(id)});
         return true;
     }
 
@@ -163,6 +215,13 @@ public class SQLDBhelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
+    public Integer deleteForm (Integer id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("from_to",
+                "userid = ? ",
+                new String[] { Integer.toString(id) });
+    }
     public ArrayList<String> getAllCotacts()
     {
         ArrayList<String> array_list = new ArrayList<String>();
@@ -170,6 +229,21 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from passes", null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)));
+            res.moveToNext();
+        }
+        return array_list;
+    }
+    public ArrayList<String> getAllForms()
+    {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from from_to", null );
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
