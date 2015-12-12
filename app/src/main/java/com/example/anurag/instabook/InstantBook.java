@@ -26,7 +26,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 public class InstantBook extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener, ExpandableListViewFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,9 @@ public class InstantBook extends AppCompatActivity
         firstFragment.setArguments(args);
         secondFragment.setArguments(getIntent().getExtras());
         secondFragment.setArguments(args);
-
+        ExpandableListViewFragment listViewFragment = new ExpandableListViewFragment();
+        listViewFragment.setArguments(getIntent().getExtras());
+        listViewFragment.setArguments(args);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction =
                 fragmentManager.beginTransaction();
@@ -127,10 +129,15 @@ public class InstantBook extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             android.support.v4.app.FragmentManager fragmentManagera = getSupportFragmentManager();
             fragmentManagera.beginTransaction().replace(R.id.flContent,secondFragment).commit();
+
             fragmentTransaction.addToBackStack(null);
 
 
         } else if (id == R.id.nav_slideshow) {
+            android.support.v4.app.FragmentManager fragmentManagera = getSupportFragmentManager();
+            fragmentManagera.beginTransaction().replace(R.id.flContent,listViewFragment).commit();
+
+            fragmentTransaction.addToBackStack(null);
 
         } else if (id == R.id.nav_manage) {
 

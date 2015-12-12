@@ -2,6 +2,8 @@ package com.example.anurag.instabook;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class FloatingForm extends Activity implements AdapterView.OnItemSelectedListener{
 
@@ -91,7 +94,7 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
 
     }
     public void Submit(View view){
-        EditText firstName,fullName,age,aadharNo,phoneno;
+        EditText fullName,age,aadharNo;
         fullName=(EditText) findViewById(R.id.fullnametext);
         age=(EditText)findViewById(R.id.ageText);
         aadharNo=(EditText)findViewById(R.id.aadharno);
@@ -154,10 +157,24 @@ public class FloatingForm extends Activity implements AdapterView.OnItemSelected
         else {
 //            SQLDBhelper2 tempStore;
 //            tempStore=new SQLDBhelper2(this);
+            String userid;
+            if(mydb.numberOfRows()==0){
+                Random random=new Random();
+                Integer temp = random.nextInt(99);
+                temp+=10;
+                userid=temp.toString();
+            }
+            else{
+                userid=mydb.getLast();
+                Integer temp=new Integer(userid);
+                temp+=1;
+                userid=temp.toString();
+
+            }
             genderButton = (RadioButton) findViewById(selectedId);
             sex = genderButton.getText().toString();
             Toast.makeText(getApplicationContext(), sex, Toast.LENGTH_LONG).show();
-            mydb.insertContact(name,AGE, sex, berthPref,UID);
+            mydb.insertContact(name,AGE, sex, berthPref,UID,userid.toString());
 //            tempStore.insertContact(first+" "+last,"",AGE,sex,berthPref);
             Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
             finish();

@@ -1,19 +1,21 @@
 package com.example.anurag.instabook;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.FragmentManager;
+
+
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.ActionMode;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +25,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,7 +35,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
-import java.util.Vector;
+
 
 
 /**
@@ -46,11 +46,12 @@ import java.util.Vector;
  * Use the {@link NewForm#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,ActionMode.Callback,View.OnClickListener {
+public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,ActionMode.Callback,View.OnClickListener,ExpandableListViewFragment.OnFragmentInteractionListener {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    HashMap<String,List<String>> data2;
     AutoCompleteTextView stationsFrom,stationsTo;
     String[] s_array,s_arrayTo;
     SQLDBhelper  handler;
@@ -59,25 +60,23 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     private int pYear;
     private int pMonth;
     private int pDay;
+    private int test;
+    public View view;
     /** This integer will uniquely define the dialog to be used for displaying date picker.*/
     static final int DATE_DIALOG_ID = 0;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    View view;
-
-
-
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
-
     public NewForm() {
         // Required empty public constructor
+    }
+    public void setTest(){
+        this.test=1;
     }
 
     /**
@@ -88,7 +87,6 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
      * @param param2 Parameter 2.
      * @return A new instance of fragment NewForm.
      */
-    // TODO: Rename and change types and number of parameters
     public static NewForm newInstance(String param1, String param2) {
         NewForm fragment = new NewForm();
         Bundle args = new Bundle();
@@ -110,10 +108,22 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_new_form, container, false);
+
+        // Inflate thgetSupportFragmentManager().beginTransaction().add(myFragment, "Some Tag").commit();e layout for this fragment
+        view= inflater.inflate(R.layout.fragment_new_form, container, false);
         Calendar cal = Calendar.getInstance(TimeZone.getDefault());
         //Date Picking
+        ExpandableListViewFragment listfragment= new ExpandableListViewFragment();
+        listfragment.newInstance("EXPLISTVW","EXPLISTVW");
+        Bundle args = new Bundle();
+        listfragment.setArguments(getActivity().getIntent().getExtras());
+        listfragment.setArguments(args);
+        android.support.v4.app.FragmentManager fragmentManagera = getActivity().getSupportFragmentManager();
+        getActivity().getSupportFragmentManager().beginTransaction().add(listfragment, "EXPLISTVW").commit();
+        fragmentManagera.beginTransaction().replace(R.id.flContent2,listfragment).commit();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                fragmentManagera.beginTransaction();
+        fragmentTransaction.addToBackStack(null);
         pDisplayDate = (TextView)view.findViewById(R.id.dateText);
         pPickDate = (Button) view.findViewById(R.id.journeydate);
         final DatePickerDialog datePicker = new DatePickerDialog(getContext(),
@@ -163,7 +173,6 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         ArrayAdapter<String> stationAdapterTo=new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1,s_arrayTo);
         stationsTo.setAdapter(stationAdapterTo);
         stationsTo.setThreshold(3);
-
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         List<String> categories = new ArrayList<String>();
@@ -176,50 +185,21 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
-
-        expListView = (ExpandableListView) view.findViewById(R.id.lvExp);
-        // preparing list data
-        prepareListData();
-        listAdapter = new ExpandableListAdapter(this.getContext(), listDataHeader, listDataChild);
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-        registerForContextMenu(expListView.getRootView());
-        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-
-                Toast.makeText(getContext(),new Integer(groupPosition).toString(),Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View vw, int position, long id) {
-                if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
-                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
-                    int childPosition = ExpandableListView.getPackedPositionChild(id);
-                    ImageButton edit=(ImageButton) vw.findViewById(R.id.editlist);
-                    // Start the CAB using the ActionMode.Callback defined above
-
-
-                    vw.setSelected(true);
-                    return true;
-
-                }
-                return false;
-            }
-        });
+//
 
 
 
         return view;
     }
-        // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public void refresh(int i){
+
     }
+        // TODO: Rename method, update argument and hook method into UI event
+//    public void onButtonPressed(Uri uri) {
+//        if (mListener != null) {
+//            mListener.onFragmentInteraction(uri);
+//        }
+//    }
 
 
     @Override
@@ -228,8 +208,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context.toString());
         }
     }
     private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
@@ -277,6 +256,11 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -290,11 +274,10 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-        public  void newForm(String s);
     }
     private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+        listDataHeader = new ArrayList<>();
+        listDataChild = new HashMap<>();
 
         // Adding child data
         handler=new SQLDBhelper(this.getContext());
@@ -302,19 +285,23 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
         List<Passanger> l =handler.dBtoPassanger();
         Passanger [] p= l.toArray(new Passanger[l.size()]);
-        Integer integer = new Integer(l.size());
+        Integer integer = Integer.valueOf(l.size());
         for (int i=0;i<integer;i++){
             listDataHeader.add(p[i].getName());
-            List<String> data = new ArrayList<String>();
+            List<String> data = new ArrayList<>();
             data.add("Age :"+p[i].getAge());
             data.add("Sex :"+p[i].getSex());
             data.add("UID :"+p[i].getUID());
             data.add("Berth Preference :" + p[i].getBerth());
+            data.add(p[i].getuserID());
             listDataChild.put(listDataHeader.get(i), data);
+
 
         }
 
+
     }
+
     /** Callback received when the user "picks" a date in the dialog */
     private DatePickerDialog.OnDateSetListener pDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
@@ -338,22 +325,12 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
                         .append(pDay).append("/")
                         .append(pYear).append(" "));
     }
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DATE_DIALOG_ID:
-                return new DatePickerDialog(this.getContext(),
-                        pDateSetListener,
-                        pYear, pMonth, pDay);
-        }
-        return null;
-    }
 
 
-
-    public void date(View v){
-        Intent i = new Intent(getActivity().getApplicationContext(),FloatingDatePicker.class);
-        startActivity(i);
-    }
+//    public void date(View v){
+//        Intent i = new Intent(getActivity().getApplicationContext(),FloatingDatePicker.class);
+//        startActivity(i);
+//    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -369,24 +346,18 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     public void onStart() {
         super.onStart();
         Log.d(msg, "The onStart() event");prepareListData();
-        ExpandableListView expListView = (ExpandableListView)getView().findViewById(R.id.lvExp);
-        // preparing list data
-        prepareListData();
-        listAdapter = new ExpandableListAdapter(this.getContext(), listDataHeader, listDataChild);
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-        expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
-                    int groupPosition = ExpandableListView.getPackedPositionGroup(id);
-                    int childPosition = ExpandableListView.getPackedPositionChild(id);
-
-                    return true;
-                }
-                return false;
-            }
-        });
+//        ExpandableListView expListView = (ExpandableListView)getView().findViewById(R.id.lvExp);
+//        // preparing list data
+//        prepareListData();
+//        listAdapter = new ExpandableListAdapter(this.getContext(), listDataHeader, listDataChild);
+//        // setting list adapter
+//        expListView.setAdapter(listAdapter);
+//        expListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//                return ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP;
+//            }
+//        });
     }
 
 

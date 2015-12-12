@@ -34,7 +34,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
         db.execSQL(
                 "create table passes " +
-                        "(id integer primary key autoincrement, name text,age text, sex text , berth text,uid text,timestamp text)"
+                        "(id integer primary key autoincrement, name text,age text, gender text , berth text,uid text,timestamp text,userid text)"
         );
     }
 
@@ -45,7 +45,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String age, String sex,String berth,String uid)
+    public boolean insertContact  (String name, String age, String sex,String berth,String uid,String userid)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -54,6 +54,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("age", age);
         contentValues.put("gender", sex);
         contentValues.put("berth", berth);
+        contentValues.put("userid",userid);
         db.insert("passes", null, contentValues);
         return true;
     }
@@ -88,6 +89,34 @@ public class SQLDBhelper extends SQLiteOpenHelper {
 //        db.close();
 //        return dbString;
 //    }
+    public String getLast(){
+        String query="Select userid from passes";
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(query,null);
+        c.moveToLast();
+        String userid=c.getString(c.getColumnIndex("userid"));
+        return userid;
+    }
+    public Passanger getPassenger(Integer id){
+        String query="Select * from passes where userid="+id.toString();
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(query,null);
+        c.moveToFirst();
+
+        Passanger p= new Passanger();
+        while(!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex("name")) != null) {
+                p.setBerth(c.getString(c.getColumnIndex("berth")));
+                p.setName(c.getString(c.getColumnIndex("name")));
+                p.setAge(c.getString(c.getColumnIndex("age")));
+                p.setUID(c.getString(c.getColumnIndex("uid")));
+                p.setSex(c.getString(c.getColumnIndex("gender")));
+
+            }
+            c.moveToNext();
+        }
+        return p;
+    }
     public List<Passanger> dBtoPassanger(){
         List<Passanger> p2=new ArrayList<Passanger>();
         String query="Select * from passes where 1";
@@ -103,7 +132,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
                 p.setAge(c.getString(c.getColumnIndex("age")));
                 p.setUID(c.getString(c.getColumnIndex("uid")));
                 p.setSex(c.getString(c.getColumnIndex("gender")));
-
+                p.setUserID(c.getString(c.getColumnIndex("userid")));
             }
             c.moveToNext();
             i++;
@@ -120,7 +149,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("name", name);
         contentValues.put("uid", uid);
         contentValues.put("age", age);
-        contentValues.put("sex", sex);
+        contentValues.put("gender", sex);
         contentValues.put("berth", berth);
         db.update("passes", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
@@ -130,7 +159,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("passes",
-                "id = ? ",
+                "userid = ? ",
                 new String[] { Integer.toString(id) });
     }
 

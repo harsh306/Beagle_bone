@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -39,10 +40,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter implements 
     }
 
 
-    public void change(){
 
-        this.notifyDataSetChanged();
-    }
     public Object getChild(int groupPosition, int childPosititon) {
         return this._listDataChild.get(this._listDataHeader.get(groupPosition))
                 .get(childPosititon);
@@ -121,21 +119,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter implements 
         return convertView;
     }
     public void showPopup(View v, final int groupPosition) {
+        ExpandableListView expListView;
         PopupMenu popup = new PopupMenu(_context, v);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.context_menu, popup.getMenu());
         popup.show();
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
+            SQLDBhelper handler= new SQLDBhelper(_context);
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_edit:
-                        Toast.makeText(_context,"Item will be edited"+new Integer(groupPosition).toString(),Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(_context,EditForm.class);
+                        Intent  i = new Intent(_context,EditForm.class);
+                        i.putExtra("id",new Integer(groupPosition+1).toString());
                         _context.startActivity(i);
                         return true;
                     case R.id.menu_delete:
-                        Toast.makeText(_context,"Item will be deleted"+new Integer(groupPosition).toString(),Toast.LENGTH_LONG).show();
+                        handler.deleteContact(new Integer(groupPosition+1));
+
                         return true;
                     default:
                         return false;
