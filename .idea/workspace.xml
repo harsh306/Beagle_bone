@@ -9,8 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b9e3d7-9a25-4e67-bdb9-ef8a3c271afe" name="Default" comment="Train_name">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/InstantBook.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/InstantBook.java" />
+    <list default="true" id="f7b9e3d7-9a25-4e67-bdb9-ef8a3c271afe" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Insta_Book.iws" />
@@ -2270,7 +2269,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450007874903</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Train_name">
+      <created>1450012767705</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1450012767705</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
