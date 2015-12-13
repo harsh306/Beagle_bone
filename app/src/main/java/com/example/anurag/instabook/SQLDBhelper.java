@@ -7,6 +7,8 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.anurag.instabook.dummy.DummyContent;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -94,11 +96,25 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         Cursor res =  db.rawQuery( "select * from passes where id="+id+"", null );
         return res;
     }
-    public Cursor getDataForm(int id){
+    public List<DummyContent.DummyItem> getDataForm(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from from_to where id="+id+"", null );
-        return res;
+        List<DummyContent.DummyItem> data=new ArrayList<>();
+        Cursor c =  db.rawQuery( "select * from from_to where 1", null );
+        c.moveToFirst();
+
+        while(!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex("form_name")) != null) {
+                DummyContent.DummyItem d= new DummyContent.DummyItem(c.getString(c.getColumnIndex("form_name")));
+                data.add(d);
+            }
+            c.moveToNext();
+
+            }
+        return data;
     }
+
+
+
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, CONTACTS_TABLE_NAME);

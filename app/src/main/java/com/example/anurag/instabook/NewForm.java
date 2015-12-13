@@ -5,8 +5,8 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 
 
-
-
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 
 import android.net.Uri;
@@ -72,6 +72,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     private int pMonth;
     private int pDay;
 
+    protected View mview;
     private int test;
     private FrameLayout view;
     protected DrawerLayout drawer;
@@ -122,11 +123,13 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
 
         // Inflate thgetSupportFragmentManager().beginTransaction().add(myFragment, "Some Tag").commit();e layout for this fragment
-        view= (FrameLayout)inflater.inflate(R.layout.fragment_new_form, container, false);
+        View view= inflater.inflate(R.layout.fragment_new_form, container, false);
         //(getActivity()).startActionMode(new NewForm());
         view.setSelected(true);
+        this.mview=view;
         activity = getActivity();
         ((InstantBook)activity).setOnBackPressedListener(new NewFormListner((FragmentActivity) activity));
         Calendar cal = Calendar.getInstance(TimeZone.getDefault());
@@ -231,6 +234,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+
         } else {
             throw new RuntimeException(context.toString());
         }
@@ -259,14 +263,22 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 //
 //
 //    }
-
+protected ActionMode m;
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
 
-        MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.context_menu, menu);
+        //View v = getView().findViewById(R.id.flContent2);
+
+        //if (isLayout(v)) {
+
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.context_menu, menu);
+            m=mode;
+        //}
 
         return true;
+
+       // return true;
     }
 
     @Override
@@ -276,8 +288,8 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-/*
-        TextView date =(TextView)getView().findViewById(R.id.dateText);
+
+      /*  TextView date =(TextView)getView().findViewById(R.id.dateText);
         Spinner ticket_t=(Spinner)getView().findViewById(R.id.spinner);
         EditText trainno =(EditText)getView().findViewById(R.id.trainno);
         Spinner quota=(Spinner)getView().findViewById(R.id.quota);
@@ -286,26 +298,32 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         Spinner class_t=(Spinner)getView().findViewById(R.id.class_t);
         EditText phone=(EditText)getView().findViewById(R.id.phone);
         EditText form_name =(EditText)getView().findViewById(R.id.formname);
-        int id = item.getItemId();
+      */  int id = item.getItemId();
 
         switch (id){
             case R.id.menu_edit: {
+                //gh.show();
                 //(String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t)
 
-                SQLDBhelper ha = new SQLDBhelper(getContext());
-                ha.insertForm(form_name.getText().toString(),from_s.getText().toString(),to_s.getText().toString(),date.getText().toString(),class_t.getSelectedItem().toString(),quota.getSelectedItem().toString(),phone.getText().toString(),ticket_t.getSelectedItem().toString(),trainno.getText().toString());
-                Toast.makeText(view.getContext(),"Form"+form_name.getText().toString()+"is saved",Toast.LENGTH_LONG).show();
+                //SQLDBhelper ha = new SQLDBhelper(getContext());
+                //ha.insertForm(form_name.getText().toString(),from_s.getText().toString(),to_s.getText().toString(),date.getText().toString(),class_t.getSelectedItem().toString(),quota.getSelectedItem().toString(),phone.getText().toString(),ticket_t.getSelectedItem().toString(),trainno.getText().toString());
+                mode.invalidate();
+
+                //Toast.makeText(getActivity(),"Form is saved",Toast.LENGTH_LONG).show();
             }
             case R.id.menu_delete:
             {
-                Toast.makeText(view.getContext(),"form would be deleted",Toast.LENGTH_LONG).show();
+                mode.finish();
+
+                //Toast.makeText(mview.getContext(),"form would be deleted",Toast.LENGTH_LONG).show();
             }
 
         }
 
         return true;
-*/  return false;
+//  return false;
     }
+
        /// NewFormListner n =new NewFormListner((FragmentActivity) activity);
     @Override
     public void onDestroyActionMode(ActionMode mode) {
@@ -346,6 +364,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         void show();
 
     }
+    OnFragmentInteractionListener gh ;
     private void prepareListData() {
         listDataHeader = new ArrayList<>();
         listDataChild = new HashMap<>();
@@ -417,6 +436,43 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
     public void onStart() {
         super.onStart();
         Log.d(msg, "The onStart() event");prepareListData();
+        mview.startActionMode(new NewForm());
+        //getActivity().finish();
+
+        //MenuItem mp= (MenuItem) m.getMenuInflater();
+        Toast.makeText(mview.getContext(),"onStart",Toast.LENGTH_LONG).show();
+        final Button button = (Button) mview.findViewById(R.id.button5);
+        final TextView date =(TextView)mview.findViewById(R.id.dateText);
+        final Spinner ticket_t=(Spinner)mview.findViewById(R.id.spinner);
+        final EditText trainno =(EditText)mview.findViewById(R.id.trainno);
+        final Spinner quota=(Spinner)mview.findViewById(R.id.quota);
+        final AutoCompleteTextView from_s=(AutoCompleteTextView)mview.findViewById(R.id.fromAutoComplete);
+        final AutoCompleteTextView to_s=(AutoCompleteTextView)mview.findViewById(R.id.toAutoComplete);
+        final Spinner class_t=(Spinner)mview.findViewById(R.id.class_t);
+        final EditText phone=(EditText)mview.findViewById(R.id.phone);
+        final EditText form_name =(EditText)mview.findViewById(R.id.formname);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                SQLDBhelper ha = new SQLDBhelper(mview.getContext());
+                 ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString());
+                String a=new Integer(ha.numberOfRowsForm()).toString();
+                Toast.makeText(activity.getApplicationContext(),"Form"+form_name.getText().toString()+"is saved"+a+" ",Toast.LENGTH_LONG).show();
+                ItemFragment fragment=new ItemFragment();
+                //Fragment fragment = new tasks();
+
+                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+                //DrawerLayout drawerLayout = (DrawerLayout)mview.findViewById(R.id.drawer_layout);
+                //drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 //        ExpandableListView expListView = (ExpandableListView)getView().findViewById(R.id.lvExp);
 //        // preparing list data
 //        prepareListData();
@@ -429,11 +485,14 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 //                return ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP;
 //            }
 //        });
-    }
-    public void onPause(){
-        super.onPause();
-        Log.d(msg,"On Pause Event");
-    }
+            }
+
+            public void onPause() {
+                super.onPause();
+                Log.d(msg, "On Pause Event");
+                Toast.makeText(mview.getContext(), "onpause", Toast.LENGTH_LONG).show();
+
+            }
 
 
-}
+        }

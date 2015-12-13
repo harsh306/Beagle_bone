@@ -27,8 +27,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.anurag.instabook.dummy.DummyContent;
+
 public class InstantBook extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener, ExpandableListViewFragment.OnFragmentInteractionListener{
+        implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener, ExpandableListViewFragment.OnFragmentInteractionListener,ItemFragment.OnListFragmentInteractionListener{
     protected NewForm.OnBackPressedListener onBackPressedListener;
     public void setOnBackPressedListener(NewForm.OnBackPressedListener onBackPressedListener) {
         this.onBackPressedListener = onBackPressedListener;
@@ -79,11 +81,11 @@ public class InstantBook extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        /*if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);*/
-        if (onBackPressedListener != null)
+        if (drawer.isDrawerOpen(GravityCompat.START))
+            drawer.closeDrawer(GravityCompat.START);
+        /*if (onBackPressedListener != null)
            // Log.e("hi","hi");
-            onBackPressedListener.doBack();
+        */
          else {
             super.onBackPressed();
         }
@@ -241,6 +243,9 @@ public class InstantBook extends AppCompatActivity
 
     @Override
     public void show() {
+        Log.e("dsvjbsjv","vds");
+        Toast.makeText(this,"hiiii",Toast.LENGTH_LONG).show();
+
 
     }
 
@@ -277,6 +282,11 @@ public class InstantBook extends AppCompatActivity
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
     }
 }

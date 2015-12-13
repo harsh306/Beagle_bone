@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/formname"
                     android:text="New Button"
-                    android:onClick="save"
+
                     android:id="@+id/button5"
                     android:layout_gravity="right|bottom" />
 

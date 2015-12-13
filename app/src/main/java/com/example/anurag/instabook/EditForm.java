@@ -102,10 +102,6 @@ public class EditForm extends AppCompatActivity implements AdapterView.OnItemSel
         genderGroup=(RadioGroup)findViewById(R.id.radioGroup);
         int selectedId=genderGroup.getCheckedRadioButtonId();
 
-
-
-
-
         String name=fullName.getText().toString()+"";
         String AGE=age.getText().toString()+"";
         String UID=aadharNo.getText().toString()+"";
