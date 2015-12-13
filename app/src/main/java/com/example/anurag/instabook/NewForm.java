@@ -26,6 +26,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -57,7 +58,7 @@ import java.util.TimeZone;
  * Use the {@link NewForm#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,ActionMode.Callback,View.OnClickListener,ExpandableListViewFragment.OnFragmentInteractionListener {
+public class NewForm extends Fragment implements AdapterView.OnItemSelectedListener,ActionMode.Callback,View.OnClickListener,ExpandableListViewFragment.OnFragmentInteractionListener,ViewTreeObserver.OnWindowFocusChangeListener {
     //    ExpandableListAdapter listAdapter;
 //    ExpandableListView expListView;
 //    private ActionMode mActionMode;
@@ -217,6 +218,12 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
         return view;
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        Log.e("msgg","you are cought");
+    }
+
     public interface OnBackPressedListener {
         public void doBack();
     }
@@ -451,16 +458,17 @@ protected ActionMode m;
         final Spinner class_t=(Spinner)mview.findViewById(R.id.class_t);
         final EditText phone=(EditText)mview.findViewById(R.id.phone);
         final EditText form_name =(EditText)mview.findViewById(R.id.formname);
+        //form_name.setHighlightColor(Integer.parseInt("#FF4081"));
 
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
                 SQLDBhelper ha = new SQLDBhelper(mview.getContext());
-                 ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString());
-                String a=new Integer(ha.numberOfRowsForm()).toString();
-                Toast.makeText(activity.getApplicationContext(),"Form"+form_name.getText().toString()+"is saved"+a+" ",Toast.LENGTH_LONG).show();
-                ItemFragment fragment=new ItemFragment();
+                //ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString());
+                String a = new Integer(ha.numberOfRowsForm()).toString();
+                Toast.makeText(activity.getApplicationContext(), "Form" + form_name.getText().toString() + "is saved" + a + " ", Toast.LENGTH_LONG).show();
+                ItemFragment fragment = new ItemFragment();
                 //Fragment fragment = new tasks();
 
                 android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

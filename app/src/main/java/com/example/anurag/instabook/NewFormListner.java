@@ -84,7 +84,7 @@ public class NewFormListner implements NewForm.OnBackPressedListener,ActionMode.
                 //(String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t)
 
                 SQLDBhelper ha = new SQLDBhelper(activity.getApplicationContext());
-                ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString());
+               // ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString());
                 int a=ha.numberOfRowsForm();
                 Integer b =new Integer(a);
                 String al=b.toString();
