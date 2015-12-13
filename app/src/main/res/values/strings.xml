@@ -21,7 +21,902 @@
         <item>LADIES</item>
          <item>TATKAL</item>
         </string-array>
+    <string-array name="Train_name">
 
+        <item>ABADH ASSAM EXP</item>
+        <item>ADI ASANSOL EXP</item>
+        <item>ADI JAT EXPRESS</item>
+        <item>ADI PURI EXP</item>
+        <item>ADI SBC EXPRESS</item>
+        <item>ADI UDZ EXPRESS</item>
+        <item>AGNIBINA EXPRESS</item>
+        <item>AHIMSA EXPRESS</item>
+        <item>AHMADABAD EXP</item>
+        <item>AII BCT EXPRESS</item>
+        <item>AII JP LINK EXP</item>
+        <item>AII RE EXPRESS</item>
+        <item>AII SBC EXPRESS</item>
+        <item>AJANTA EXP</item>
+        <item>AJANTA EXPRESS</item>
+        <item>AJMER EXPRESS</item>
+        <item>AKAL TAKHT EXP</item>
+        <item>ALA HAZRAT EXP</item>
+        <item>ALD HW EXP</item>
+        <item>ALLEPPEY EXP</item>
+        <item>AMARAVATHI EXP</item>
+        <item>AMARAVATI EXP</item>
+        <item>AMARKANTAK EXP</item>
+        <item>AMAR NATH EXP</item>
+        <item>AMARNATH EXP</item>
+        <item>AMARNATH EXPRESS</item>
+        <item>AMRITHA EXPRESS</item>
+        <item>AMRITSAR EXP</item>
+        <item>AMRITSAR EXPRESS</item>
+        <item>AMRITSAR MAIL</item>
+        <item>ANANTAPURI EXP</item>
+        <item>ANANYA EXPRESS</item>
+        <item>ANDAMAN EXPRESS</item>
+        <item>ANNANYA EXPRESS</item>
+        <item>APDJ RNC EXPRESS</item>
+        <item>A P EXP</item>
+        <item>A P EXPRESS</item>
+        <item>ARAVALI EXPRESS</item>
+        <item>ARCHANA EXPRESS</item>
+        <item>ARCHNA EXPRESS</item>
+        <item>ARUNACHAL EXP</item>
+        <item>ASH MATHURA EXP</item>
+        <item>ASHRAM EXPRESS</item>
+        <item>ASN ADI SUP EXP</item>
+        <item>ASR DBRT EXPRESS</item>
+        <item>ASR DR EXPRESS</item>
+        <item>ASR HWH EXPRESS</item>
+        <item>ASR HWH MAIL</item>
+        <item>ASR JAIPUR EXP</item>
+        <item>ASR JP EXPRESS</item>
+        <item>ASR KIR EXPRESS</item>
+        <item>ASR NDLS EXP</item>
+        <item>ASR NED EXPRESS</item>
+        <item>ASR SEALDAH EXP</item>
+        <item>ATTARI DLI EXP</item>
+        <item>AVADH ASSAM EXP</item>
+        <item>AVADH EXPRESS</item>
+        <item>AVANTIKA EXP</item>
+        <item>AZAD HIND EXP</item>
+        <item>AZIMABAD EXPRESS</item>
+        <item>BAGH EXPRESS</item>
+        <item>BAGMATI EXPRESS</item>
+        <item>BANGALORE EXP</item>
+        <item>BANGALORE MAIL</item>
+        <item>BANGALORE SF EXP</item>
+        <item>BANKA DNR EXP</item>
+        <item>BARAK VALLEY EXP</item>
+        <item>BAREILLY EXP</item>
+        <item>BAREILLY EXPRESS</item>
+        <item>BARMER KLK EXP</item>
+        <item>BASAVA EXPRESS</item>
+        <item>BBS CHENNAI EXP</item>
+        <item>BBS LTT SUP EXP</item>
+        <item>BBS PDY EXPRESS</item>
+        <item>BBS R EXPRESS</item>
+        <item>BBS YPR SUP EXP</item>
+        <item>BCT JP EXPRESS</item>
+        <item>BDTS PATNA EXP</item>
+        <item>BDTS SMPRK K EXP</item>
+        <item>BDTS SURAT EXP</item>
+        <item>BE BHUJ EXP</item>
+        <item>BE LTT EXPRESS</item>
+        <item>BETWA EXPRESS</item>
+        <item>B G EXPRESS</item>
+        <item>BGP LTT EXPRESS</item>
+        <item>BGP MLDT INT EXP</item>
+        <item>BGP SURAT EXP</item>
+        <item>BHAGALPUR EXP</item>
+        <item>BHAGIRATHI EXP</item>
+        <item>BHAGYANAGAR EXP</item>
+        <item>BHAVNAGAR EXP</item>
+        <item>BHOPAL EXPRESS</item>
+        <item>BHUBANESHWAR EXP</item>
+        <item>BHUBANESWAR EXP</item>
+        <item>BHUJ BDTS EXP</item>
+        <item>BIKANER EXPRESS</item>
+        <item>BIKANER MAIL</item>
+        <item>BILASPUR EXPRESS</item>
+        <item>BIX INDB EXP</item>
+        <item>BJU GWL MAIL</item>
+        <item>BKN GHY EXPRESS</item>
+        <item>BKN JAIPUR EXP</item>
+        <item>BKN SC EXP</item>
+        <item>BKN TVC EXPRESS</item>
+        <item>BLACKDIAMOND EXP</item>
+        <item>BL SHRAMIK EXP</item>
+        <item>BME GHY EXPRESS</item>
+        <item>BME HW LINK EXP</item>
+        <item>B NATH DHAM EXP</item>
+        <item>BPL HOWRAH EXP</item>
+        <item>BPL JABALPUR EXP</item>
+        <item>BPL LUCKNOW EXP</item>
+        <item>BPQ DR PAS EXP</item>
+        <item>BRAHMPUTRA MAIL</item>
+        <item>BRINDAVAN EXP</item>
+        <item>BSB DDN EXP</item>
+        <item>BSB LTT SUP EXP</item>
+        <item>BSB OKHA EXP</item>
+        <item>BSB RNC EXPRESS</item>
+        <item>BSB SDAH EXPRESS</item>
+        <item>BSP MAS EXP</item>
+        <item>BSP TPTY EXPRESS</item>
+        <item>BSP YPR EXPRESS</item>
+        <item>BTI JAT EXP</item>
+        <item>BTI NDLS EXPRES</item>
+        <item>BUDH PURNIMA EXP</item>
+        <item>BUDHPURNIMA EXP</item>
+        <item>BUI SDAH EXP</item>
+        <item>BUNDELKHAND EXP</item>
+        <item>BVC BDTS EXPRESS</item>
+        <item>BVC KAKINADA EXP</item>
+        <item>BZA SC EXP</item>
+        <item>CACHAR EXPRESS</item>
+        <item>CANNANORE EXP</item>
+        <item>CAPE HOWRAH EXP</item>
+        <item>CAPE MUMBAI EXP</item>
+        <item>CAPITAL EXP</item>
+        <item>CAPITAL EXPRESS</item>
+        <item>CBE JAIPUR EXP</item>
+        <item>CCT BVC EXPRESS</item>
+        <item>CCT MANMAD EXP</item>
+        <item>CDG LKO EXPRESS</item>
+        <item>CHALUKYA EXP</item>
+        <item>CHALUKYA EXPRESS</item>
+        <item>CHAMBAL EXP</item>
+        <item>CHAMBAL EXPRESS</item>
+        <item>CHAMUNDI EXP</item>
+        <item>CHAMUNDI EXPRES</item>
+        <item>CHAPRA LJN EXP</item>
+        <item>CHARMINAR EXP</item>
+        <item>CHATTISGARH EXP</item>
+        <item>CHAURICHAURAEXP</item>
+        <item>CHENNAI EXP</item>
+        <item>CHENNAI EXPRESS</item>
+        <item>CHENNAI MAIL</item>
+        <item>CHERAN EXPRESS</item>
+        <item>CHETAK EXPRESS</item>
+        <item>CHHAPRA EXPRESS</item>
+        <item>CHHATISGARH EXP</item>
+        <item>CHITRAKUT EXP</item>
+        <item>CIRCAR EXP</item>
+        <item>COAL FIELD EXP</item>
+        <item>COALFIELD EXP</item>
+        <item>COIMBATORE EXP</item>
+        <item>COROMANDAL EXP</item>
+        <item>COROMANDEL EXP</item>
+        <item>CP GKP EXP</item>
+        <item>CPR LTT EXPRESS</item>
+        <item>CPR TATA EXP</item>
+        <item>CSTM CHENNAI EXP</item>
+        <item>DAKSHIN EXPRESS</item>
+        <item>DANAPUR EXP</item>
+        <item>DANAPUR EXPRESS</item>
+        <item>DARBHANGA EXP</item>
+        <item>DARJEELING MAIL</item>
+        <item>DAULADHAR EXP</item>
+        <item>DAYODAYA EXP</item>
+        <item>DAYODAYA EXPRESS</item>
+        <item>DBG LTT EXPRESS</item>
+        <item>DBG PUNE EXP</item>
+        <item>DBG SDAH EXP</item>
+        <item>DBRT ASR EXPRESS</item>
+        <item>DBRT MS EXPRESS</item>
+        <item>DDN BSB EXPRESS</item>
+        <item>DDN CDG MAS EXP</item>
+        <item>DDN GKP EXP</item>
+        <item>DDN INDB EXP</item>
+        <item>DDN KGM EXPRESS</item>
+        <item>DDN MAS EXP</item>
+        <item>DDN MFP EXP</item>
+        <item>DECCAN EXPRESS</item>
+        <item>DEE PORBNDR EXP</item>
+        <item>DEHRADUN EXP</item>
+        <item>DEHRADUN EXPRESS</item>
+        <item>DELHI SR EXPRESS</item>
+        <item>DEVAGIRI EXP</item>
+        <item>DGHA HWH EXP</item>
+        <item>DHANBAD EXPRESS</item>
+        <item>DHAULI EXP</item>
+        <item>DHI DR PAS EXP</item>
+        <item>DHN ALLP EXPRESS</item>
+        <item>DHN HTE INT EXP</item>
+        <item>DIBRUGARH EXP</item>
+        <item>DIGHA SRC EXP</item>
+        <item>DIKSHABHUMI EXP</item>
+        <item>DLI ATTARI EXP</item>
+        <item>DLI FD EXP</item>
+        <item>DLI JSM EXPRESS</item>
+        <item>DLI RBL EXP</item>
+        <item>DNR BANKA EXP</item>
+        <item>DNR GRD EXPRESS</item>
+        <item>DNR SHC LINK EXP</item>
+        <item>DNR-TATA===EXP</item>
+        <item>DOON EXPRESS</item>
+        <item>DURG CNB EXPRESS</item>
+        <item>DURG GKP EXP</item>
+        <item>DURG GKP EXPRESS</item>
+        <item>DWARKA EXPRESS</item>
+        <item>DWR MYSORE EXP</item>
+        <item>EAST COAST EXP</item>
+        <item>ERANAKULAM EXP</item>
+        <item>ERNAKULAM EXP</item>
+        <item>ERNAKULAM SF EXP</item>
+        <item>ERS MILLENUM EXP</item>
+        <item>ERS PATNA EXP</item>
+        <item>FALAKNUMA EXP</item>
+        <item>FARAKKA EXPRESS</item>
+        <item>FARKKA EXPRESS</item>
+        <item>FD DLI EXP</item>
+        <item>FZR JANATA EXP</item>
+        <item>GAD NGP EXP</item>
+        <item>GANADEVTA EXP</item>
+        <item>GANDHIDHAM EXP</item>
+        <item>GANGADAMODAREXP</item>
+        <item>GANGA GOMTI EXP</item>
+        <item>GANGAKAVERI EXP</item>
+        <item>GANGASAGAR EXP</item>
+        <item>GANGASATLUJ EXP</item>
+        <item>GANGASUTLEJ EXP</item>
+        <item>GARHWAL EXPRESS</item>
+        <item>GARIB NAWAJ EXP</item>
+        <item>GARIB NAWAZ EXP</item>
+        <item>GARIB RATH EXP</item>
+        <item>GAYA HWH EXPRESS</item>
+        <item>GHY BME BKN EXP</item>
+        <item>GHY ERS EXPRESS</item>
+        <item>GHY JHAJHA EXP</item>
+        <item>GHY LTT EXP</item>
+        <item>GHY LTT EXPRESS</item>
+        <item>GHY PURI EXPRESS</item>
+        <item>GHY-SBC-EXPRESS</item>
+        <item>GHY SC EXPRESS</item>
+        <item>GHY-TVC-EXPRESS</item>
+        <item>GIMB SBC EXPRESS</item>
+        <item>GITANJALI EXP</item>
+        <item>GITANJALI EXP.</item>
+        <item>GKP DDN EXPRESS</item>
+        <item>GKP DURG EXP</item>
+        <item>GKP KOLKATA EXP</item>
+        <item>GKP LTT EXP</item>
+        <item>GKP OKHA EXPRES</item>
+        <item>GKP SBC EXPRESS</item>
+        <item>GKP SC EXPRESS</item>
+        <item>GNC INDORE EXP</item>
+        <item>GOA EXPRESS</item>
+        <item>GOA SMPRK K EXP</item>
+        <item>GODAN EXPRESS</item>
+        <item>GODAVARI EXP</item>
+        <item>GOKUL EXP</item>
+        <item>GOKUL EXPRESS</item>
+        <item>GOLCONDA EXP</item>
+        <item>GOMTI EXP</item>
+        <item>GOMTI EXPRESS</item>
+        <item>GONDWANA EXPRES</item>
+        <item>GONDWANA EXPRESS</item>
+        <item>GONDWAN EXPRESS</item>
+        <item>GORAKDAM EXPRESS</item>
+        <item>GORAKHPUR EXP</item>
+        <item>GOUR EXP</item>
+        <item>GOUR EXPRESS</item>
+        <item>GOUTAMI EXP</item>
+        <item>GRAND TRUNK EXP</item>
+        <item>GRD CP EXPRESS</item>
+        <item>GRD DNR EXP</item>
+        <item>G T EXPRESS</item>
+        <item>GUJARAT EXPRESS</item>
+        <item>GUJARAT MAIL</item>
+        <item>GURUDEV EXPRESS</item>
+        <item>GUV CHENNAI EXP</item>
+        <item>GUWAHATI EXP</item>
+        <item>GUWAHATI EXPRESS</item>
+        <item>GUWAHATI MS EXP</item>
+        <item>GWL BJU MAIL</item>
+        <item>GYAN GANGA EXP</item>
+        <item>HABIBGANJ EXPRES</item>
+        <item>HAMPI EXP</item>
+        <item>HAMPI EXPRESS</item>
+        <item>HAMPI LINK EXP</item>
+        <item>HAPA JAT EXPRESS</item>
+        <item>HARIDWAR MAIL</item>
+        <item>HARIPRIYA EXP</item>
+        <item>HATE BAZARE EXP</item>
+        <item>HATIA EXPRESS</item>
+        <item>HATIA PATNA EXP</item>
+        <item>HBJ LTT SUP EXP</item>
+        <item>HEMKUNT EXP</item>
+        <item>HIMACHAL EXP</item>
+        <item>HIMACHAL EXPRESS</item>
+        <item>HIMGIRI EXPRESS</item>
+        <item>HIMSAGAR EXP</item>
+        <item>HIRAKHAND EXP</item>
+        <item>HIRAKUND EXP</item>
+        <item>HOWRAH EXP</item>
+        <item>HOWRAH EXPRESS</item>
+        <item>HOWRAH MAIL</item>
+        <item>HOWRAH SUP EXP</item>
+        <item>HTE DHN INT EXP</item>
+        <item>HTE JAT EXP</item>
+        <item>HTE RJPB EXP</item>
+        <item>HTE-RJPB-EXP</item>
+        <item>HTE RNC HWH EXP</item>
+        <item>HTE YPR EXPRESS</item>
+        <item>HUBLI EXPRESS</item>
+        <item>HUSAINSAGAR EXP</item>
+        <item>HUSSAINSAGAR EXP</item>
+        <item>HUTATMA EXPRESS</item>
+        <item>HW ADI MAIL</item>
+        <item>HW ALD EXP</item>
+        <item>HW BME LINK EXP</item>
+        <item>HWH ADI EXPRESS</item>
+        <item>HWH BPL EXPRESS</item>
+        <item>HWH CSTM EXPRESS</item>
+        <item>HWH DGHA EXP</item>
+        <item>HWH DLI KLK MAIL</item>
+        <item>HWH GAYA EXPRESS</item>
+        <item>HWH HATIA EXP</item>
+        <item>HWH JMP EXPRESS</item>
+        <item>HWH==JU==EXP</item>
+        <item>HWH KORAPUT EXP</item>
+        <item>HWH MAS MAIL</item>
+        <item>HWH MLDT INT EXP</item>
+        <item>HWH MUMBAI MAIL</item>
+        <item>HWH NDLS EXPRESS</item>
+        <item>HWH PBR EXPRESS</item>
+        <item>HWH PRR EXP</item>
+        <item>HWH PURI EXP</item>
+        <item>HWH PURI EXPRESS</item>
+        <item>HWH TPJ EXPRESS</item>
+        <item>HWH=TVC EXPRESS</item>
+        <item>HWH YPR EXPRESS</item>
+        <item>HW SGNR EXPRESS</item>
+        <item>HYDERABAD EXP</item>
+        <item>IBADAT EXPRESS</item>
+        <item>INDB NAGPUR EXP</item>
+        <item>INDB PATNA EXP</item>
+        <item>INDB RJPB EXP</item>
+        <item>IND DDN EXPRESS</item>
+        <item>INDORE BHIND EXP</item>
+        <item>INDORE GNC EXP</item>
+        <item>IND PUNE EXPRESS</item>
+        <item>INDRAYANI EXP</item>
+        <item>INTER CITY EXP</item>
+        <item>INTERCITY EXP</item>
+        <item>INTERCITY EXPRES</item>
+        <item>ISPAT EXPRESS</item>
+        <item>JAIPUR ASR EXP</item>
+        <item>JAIPUR EXP</item>
+        <item>JAIPUR EXPRESS</item>
+        <item>JALIANWALA B EXP</item>
+        <item>JAM JAT EXPRESS</item>
+        <item>JAMMU GKP EXP</item>
+        <item>JAMMU JP EXP</item>
+        <item>JAMMU MAIL</item>
+        <item>JAMMU TAWI EXP</item>
+        <item>JAMMUTAWI EXP</item>
+        <item>JANASEWA EXPRESS</item>
+        <item>JANMABHOOMI EXP</item>
+        <item>JANSEWA EXPRESS</item>
+        <item>JANTA EXPRESS</item>
+        <item>JAT ADI EXPRESS</item>
+        <item>JAT BTI EXP</item>
+        <item>JAT JAMNAGR EXP</item>
+        <item>JAT JBP EXPRESS</item>
+        <item>JBP BHOPAL EXP</item>
+        <item>JHAJHA GHY EXP</item>
+        <item>JHARKHAND EXP</item>
+        <item>JHARKHAND EXPRES</item>
+        <item>JHARKHANDS/JEXP</item>
+        <item>JHELUM EXPRESS</item>
+        <item>JMP HWH EXP</item>
+        <item>JODHPUR EXPRESS</item>
+        <item>JP AII LINK EXP</item>
+        <item>JP ASR EXPRESS</item>
+        <item>JP BDTS SUP EXP</item>
+        <item>JP BIKANER EXP</item>
+        <item>JP CBE SUP EXP</item>
+        <item>JP INDB EXPRESS</item>
+        <item>JP JAT EXP</item>
+        <item>JP MADRAS EXPRES</item>
+        <item>JP MYSORE EXP</item>
+        <item>JP SDAH EXPRESS</item>
+        <item>JP SGNR EXP</item>
+        <item>JP UDZ SUP EXP</item>
+        <item>JSM DLI EXPRESS</item>
+        <item>JSM JU EXPRESS</item>
+        <item>JU BANGLORE EXP</item>
+        <item>JUC NDLS EXPRES</item>
+        <item>JU JSM EXPRESS</item>
+        <item>JU MBF LINK EXP</item>
+        <item>JU MS EXPRESS</item>
+        <item>JU PUNE EXPRESS</item>
+        <item>JU PURI EXPRESS</item>
+        <item>KACHEGUDA EXP</item>
+        <item>KAIFIYAT EXP</item>
+        <item>KAKINADA EXPRESS</item>
+        <item>KALINDI EXPRESS</item>
+        <item>KALINGAUTKALEXP</item>
+        <item>KALKA MAIL</item>
+        <item>KALKA SIMLA EXP</item>
+        <item>KAMAYANI EXPRES</item>
+        <item>KAMAYANI EXPRESS</item>
+        <item>KAMRUP EXPRESS</item>
+        <item>KANCHANJANGA EXP</item>
+        <item>KANCHANJUNGAEXP</item>
+        <item>KANCHANKANYA EXP</item>
+        <item>KANNYAKUMARI EXP</item>
+        <item>KANYAKUMARI EXP</item>
+        <item>KARNATAKA EXP</item>
+        <item>KARNAVATI EXP</item>
+        <item>KASHI V EXPRESS</item>
+        <item>KCG MS EXP</item>
+        <item>KCG YPR EXP</item>
+        <item>KERALA EXPRESS</item>
+        <item>KGM DDN EXPRESS</item>
+        <item>KIR ASR EXPRESS</item>
+        <item>KISAN EXPRESS</item>
+        <item>KLK BME EXPRESS</item>
+        <item>KOCHUVELI EXP</item>
+        <item>KOLKATA MAIL</item>
+        <item>KONARK EXPRESS</item>
+        <item>KONGU EXPRESS</item>
+        <item>KONKAN KANYA EXP</item>
+        <item>KORAPUT HWH EXP</item>
+        <item>KORBA EXPRESS</item>
+        <item>KOSHI EXP</item>
+        <item>KOVAI EXP</item>
+        <item>KOVAI EXPRESS</item>
+        <item>KOYNA EXPRESS</item>
+        <item>KRBA TVC EXPRESS</item>
+        <item>KRBA VSKP EXP</item>
+        <item>KRISHNA EXP</item>
+        <item>KRISHNA EXPRESS</item>
+        <item>KRJ ALD LINK EXP</item>
+        <item>KTK SMPRK K EXP</item>
+        <item>KUMAON EXPRESS</item>
+        <item>KUMAUN EXPRESS</item>
+        <item>KUSHINAGAR EXP</item>
+        <item>KUTCH EXPRESS</item>
+        <item>K V EXP</item>
+        <item>LALBAGH EXP</item>
+        <item>LALBAGH EXPRESS</item>
+        <item>LAL QUILA EXP</item>
+        <item>LASHKAR EXPRESS</item>
+        <item>LATUR EXPRESS</item>
+        <item>LICHCHAVI EXP</item>
+        <item>LINK-DAKSIN EXP</item>
+        <item>LINK EXPRESS</item>
+        <item>LINK SECBAD EXP</item>
+        <item>LJN BJU EXP</item>
+        <item>LJN BPL EXPRESS</item>
+        <item>LJN CHAPRA EXP</item>
+        <item>LJN LTT EXPRESSS</item>
+        <item>LJN MAS EXP</item>
+        <item>LJN MUV EXP</item>
+        <item>LJN PUNE EXP</item>
+        <item>LKO CDG EXPRESS</item>
+        <item>LKO MTJ EXPRESS</item>
+        <item>LKO SRE EXPRESS</item>
+        <item>LOHIT EXPRESS</item>
+        <item>LOKAMANYA TT EXP</item>
+        <item>LOKMANYA TT EXP</item>
+        <item>LOK SHAKTI EXP</item>
+        <item>LTT BSB SUP EXP</item>
+        <item>LTT MMR EXP</item>
+        <item>LTT RJPB EXP</item>
+        <item>LTT SHALIMAR EXP</item>
+        <item>LUCKNOW EXP</item>
+        <item>LUCKNOW MAIL</item>
+        <item>LUCKNOW SUP EXP</item>
+        <item>MACHILIPTNM EXP</item>
+        <item>MADRAS EXPRESS</item>
+        <item>MADURAI EXPRESS</item>
+        <item>MAGADH EXPRESS</item>
+        <item>MAHABODHI EXP</item>
+        <item>MAHAKAUSHAL EXP</item>
+        <item>MAHAKOSHAL EXP</item>
+        <item>MAHALAXMI EXP</item>
+        <item>MAHANAGARI EXP</item>
+        <item>MAHANANDA EXP</item>
+        <item>MAHARASHTRA EXP</item>
+        <item>MAILADUTURAI EX</item>
+        <item>MALABAR EXP</item>
+        <item>MALABAR EXPRESS</item>
+        <item>MALANI EXP</item>
+        <item>MALWA EXPRESS</item>
+        <item>MANDOR EXPRESS</item>
+        <item>MANDOVI EXPRESS</item>
+        <item>MANGALORE EXP</item>
+        <item>MANGALORE MAIL</item>
+        <item>MAQ CHENNAI EXP</item>
+        <item>MARATHWADA EXP</item>
+        <item>MARUDHAR EXPRES</item>
+        <item>MARUDHAR EXPRESS</item>
+        <item>MARU SAGAR EXP</item>
+        <item>MAS HUBLI EXP</item>
+        <item>MAS MUMBAI EXP</item>
+        <item>MAS VASCO EXP</item>
+        <item>MATHURA ASH EXP</item>
+        <item>MATSYAGANDA EXP</item>
+        <item>MATSYAGANDHA EXP</item>
+        <item>MAUR DHAWAJ EXP</item>
+        <item>MAURYA EXP</item>
+        <item>MAURYA EXPRESS</item>
+        <item>MAVELI EXPRESS</item>
+        <item>MDU JAMMU EXP</item>
+        <item>MDU MMR EXPRESS</item>
+        <item>MEWAR EXPRESS</item>
+        <item>MFP DDN EXP</item>
+        <item>MFP LTT EXPRESS</item>
+        <item>MFP UMB EXP</item>
+        <item>MFP YPR EXP</item>
+        <item>MGS BE PASS EXP</item>
+        <item>MHOW COR EXPRESS</item>
+        <item>MITHILA EXPRESS</item>
+        <item>MITHILANCHAL EXP</item>
+        <item>MKI PBR EXPRESS</item>
+        <item>MLDT BGP INT EXP</item>
+        <item>MLDT HWH INT EXP</item>
+        <item>MMR LTT EXP</item>
+        <item>MMR MADURAI EXP</item>
+        <item>MNGLA LKSDP EXP</item>
+        <item>MOUR DHWAJ EXP</item>
+        <item>MRJ UBL EXP</item>
+        <item>MS GURUVAYUR EXP</item>
+        <item>MS JODHPUR EXP</item>
+        <item>MS MANGALORE EXP</item>
+        <item>MTJ LKO EXPRESS</item>
+        <item>MTM SC EXP</item>
+        <item>MUMBAI EXP</item>
+        <item>MUMBAI EXPRESS</item>
+        <item>MUMBAI MAIL</item>
+        <item>MURI EXPRESS</item>
+        <item>MUSSOORIE EXP</item>
+        <item>MUV LJN EXPRESS</item>
+        <item>MUZAFFARPUR EXP</item>
+        <item>MYS DHARWAD EXP</item>
+        <item>MYSORE EXP</item>
+        <item>MYSORE EXPRESS</item>
+        <item>MYS SHIMOGA EXP</item>
+        <item>NAGARCOIL EXP</item>
+        <item>NAGARJUNA EXP</item>
+        <item>NAGERCOIL EXP</item>
+        <item>NAGPUR PUNE EXP</item>
+        <item>NAGPUR SUP EXP</item>
+        <item>NAINITAL EXP</item>
+        <item>NANDIGRAM EXP</item>
+        <item>NARASAPUR EXP</item>
+        <item>NARAYANADRI EXP</item>
+        <item>NARMADA EXPRESS</item>
+        <item>NARMADA PAS/EXP</item>
+        <item>NAUCHANDI EXP</item>
+        <item>NAVAJIVAN EXP</item>
+        <item>NAVJEEVAN EXP</item>
+        <item>NAVYUG EXP</item>
+        <item>NAVYUG EXPRESS</item>
+        <item>NCJ CHENNAI EXP</item>
+        <item>NCJ MUMBAI EXP</item>
+        <item>NDLSASR EXPRESS</item>
+        <item>NDLS BTI EXP</item>
+        <item>NDLS HWH EXPRESS</item>
+        <item>NDLS JUC EXPRES</item>
+        <item>NDLS REWA EXP</item>
+        <item>NED SC EXPRESS</item>
+        <item>NEELACHAL EXP</item>
+        <item>NELLAI EXPRESS</item>
+        <item>NETRAVATHI EXP</item>
+        <item>NETRAVATI EXP</item>
+        <item>NGP BILASPUR EXP</item>
+        <item>NGP INDORE EXP</item>
+        <item>NGP JBP SUP EXP</item>
+        <item>NILAGIRI EXP</item>
+        <item>NIZAMUDDIN EXP</item>
+        <item>NJP SDAH EXPRESS</item>
+        <item>NMH KOTA EXP</item>
+        <item>NORTH EAST EXP</item>
+        <item>NS HYDRABAD EXP</item>
+        <item>NZB VSKP EXPRESS</item>
+        <item>NZM BSL EXPRESS</item>
+        <item>NZM KOP EXP</item>
+        <item>NZM LINK EXP</item>
+        <item>OKHA BSB EXPRESS</item>
+        <item>OKHA ERS EXPRESS</item>
+        <item>OKHA EXPRESS</item>
+        <item>OKHA PURI EXP</item>
+        <item>PADMAVATHI EXP</item>
+        <item>PADMAVATI EXP</item>
+        <item>PALAMAU EXP</item>
+        <item>PALAMOU EXPRESS</item>
+        <item>PALLAVAN EXP</item>
+        <item>PALNADU EXP</item>
+        <item>PA LUCKNOW EXP</item>
+        <item>PANCHAVATI EXP.</item>
+        <item>PANCHAVTI EXP</item>
+        <item>PANDIAN EXP</item>
+        <item>PA PATNA SUP EXP</item>
+        <item>PARASURAM EXP</item>
+        <item>PASCHIM EXPRESS</item>
+        <item>PATLIPUTRA EXP</item>
+        <item>PATNA EXPRESS</item>
+        <item>PAU PNBE EXP</item>
+        <item>PBR HOWRAH EXP</item>
+        <item>PBR MOTIHARI EXP</item>
+        <item>PBR OKHA EXPRESS</item>
+        <item>PDY BBS EXPRESS</item>
+        <item>PEARL CITY EXP</item>
+        <item>PINAKINI EXP</item>
+        <item>PNBE BDTS EXP</item>
+        <item>PNBE-ERS EXPRESS</item>
+        <item>PNBE NED PAU EXP</item>
+        <item>PNBE PUNE EXP</item>
+        <item>POORABIYA EXP</item>
+        <item>POORBIYA EXP</item>
+        <item>POORNA EXPRESS</item>
+        <item>POORVA EXPRESS</item>
+        <item>PORBANDAR EXP</item>
+        <item>PRAGATI EXPRESS</item>
+        <item>PRASANTHI EXP</item>
+        <item>PRAYAG RAJ EXP</item>
+        <item>PRERANA EXPRESS</item>
+        <item>PRR HWH EXP</item>
+        <item>PUNE BHUJ EXP</item>
+        <item>PUNE EXPRESS</item>
+        <item>PUNE INDORE EXP</item>
+        <item>PUNE JODHPUR EXP</item>
+        <item>PUNE NAGPUR EXP</item>
+        <item>PUNE NANDED EXP</item>
+        <item>PUNJAB MAIL</item>
+        <item>PURBANCHAL EXP</item>
+        <item>PURI=ADI EXP</item>
+        <item>PURI ADI EXP</item>
+        <item>PURI EXPRESS</item>
+        <item>PURI GHY EXPRESS</item>
+        <item>PURI HWH EXP</item>
+        <item>PURI HWH EXPRESS</item>
+        <item>PURI JU EXPRESS</item>
+        <item>PURI NDLS EXP</item>
+        <item>PURI-OKHA-EXP</item>
+        <item>PURI SBP INT EXP</item>
+        <item>PURI TPTY EXP</item>
+        <item>PURSHOTTAM EXP</item>
+        <item>PURUSHOTTAM EXP</item>
+        <item>PURVANCHAL EXP</item>
+        <item>PUSHPAK EXP</item>
+        <item>PUSHPAK EXPRESS</item>
+        <item>RADHIKAPUR EXP</item>
+        <item>RAJENDRA NGR EXP</item>
+        <item>RAJGRIHA EXPRESS</item>
+        <item>RAJKOT EXPRESS</item>
+        <item>RANAKPUR EXPRES</item>
+        <item>RANCHI EXPRESS</item>
+        <item>RANICHENNAMA EXP</item>
+        <item>RANIKHET EXP</item>
+        <item>RAPTI SAGAR EXP</item>
+        <item>RAPTISAGAR EXP</item>
+        <item>RATNACHALAM EXP</item>
+        <item>RATNACHAL EXP</item>
+        <item>RAYALASEEMA EXP</item>
+        <item>R BBS EXP</item>
+        <item>RBL DLI EXPRESS</item>
+        <item>RDP KOKATA EXP</item>
+        <item>RE MD EXPRESS</item>
+        <item>REWANCHAL EXP</item>
+        <item>RGDA SBP EXPRESS</item>
+        <item>RJPB ERS EXPRESS</item>
+        <item>RJPB HATIA EXP</item>
+        <item>RJPB HTE EXPRESS</item>
+        <item>RJPB INDB EXPRES</item>
+        <item>RJPB LTT SUP EXP</item>
+        <item>RJPB SC EXPRESS</item>
+        <item>RJPB(T)-LTT EXP</item>
+        <item>RJT SC EXPRESS</item>
+        <item>RMR BSB EXPRESS</item>
+        <item>RNC APDJ EXPRESS</item>
+        <item>RNC BSB EXPRESS</item>
+        <item>RNC LTT EXPRESS</item>
+        <item>ROCK FORT EXP</item>
+        <item>ROCKFORT EXPRESS</item>
+        <item>RUPASIBANGLA EXP</item>
+        <item>SABARI EXP</item>
+        <item>SABARI EXPRESS</item>
+        <item>SABARMATI EXP</item>
+        <item>SACHKHAND EXP</item>
+        <item>SADBHAVNA EXP</item>
+        <item>SADBHAWANA EXP</item>
+        <item>SADBHAWNA EXP</item>
+        <item>SADHBHAWNA EXP</item>
+        <item>SAHYADRI EXP</item>
+        <item>SAHYADRI EXPRES</item>
+        <item>SAKET EXPRESS</item>
+        <item>SAKET LINK EXP</item>
+        <item>SAMARSATA EXP</item>
+        <item>SAMPOORN K EXP</item>
+        <item>SAMTA EXPRESS</item>
+        <item>SAMTA-EXPRESS</item>
+        <item>SANGAM EXP</item>
+        <item>SANGAM EXPRESS</item>
+        <item>SANGHA MITRA EXP</item>
+        <item>SANGHAMITRA EXP</item>
+        <item>SANTINIKATANEXP</item>
+        <item>SANTINIKETANEXP</item>
+        <item>SAPTAGIRI EXP</item>
+        <item>SAPTHAGIRI EXP</item>
+        <item>SAPT KRANTI EXP</item>
+        <item>SARAIGHAT EXP</item>
+        <item>SARAIGHATEXPRES</item>
+        <item>SARNATH EXPRESS</item>
+        <item>SARVODAYA EXP</item>
+        <item>SARYUYAMUNA EXP</item>
+        <item>SATAVAHANA EXP</item>
+        <item>SATLUJ EXPRESS</item>
+        <item>SATYAGRAH EXP</item>
+        <item>SAU JANATA EXP</item>
+        <item>SAURASHTRA EXP</item>
+        <item>SAURASHTRA MAIL</item>
+        <item>SAYAJINAGARI EXP</item>
+        <item>SBP PURI INT EXP</item>
+        <item>SBP RGDA EXPRESS</item>
+        <item>SC BKN EXP</item>
+        <item>SC BZA EXP</item>
+        <item>SC GHY EXP</item>
+        <item>SC NED EXPRESS</item>
+        <item>SC PNBE EXPRESS</item>
+        <item>SDAH BSB EXP</item>
+        <item>SDAH BUI EXPRESS</item>
+        <item>SDAH JP EXPRESS</item>
+        <item>SDAH NJP EXPRESS</item>
+        <item>SEALDAH EXPRESS</item>
+        <item>SESHADRI EXPRESS</item>
+        <item>SETHU EXPRESS</item>
+        <item>SEWAGRAM EXP.</item>
+        <item>SGNR HW EXPRESS</item>
+        <item>SGNR JP EXPRESS</item>
+        <item>SGRL GHDLINK EXP</item>
+        <item>SHAHEED EXP</item>
+        <item>SHAHEED EXPRESS</item>
+        <item>SHAKTIPUNJ EXP</item>
+        <item>SHALIMAR EXP</item>
+        <item>SHARAVATHI EXP</item>
+        <item>SHARAVATI EXP</item>
+        <item>SHC DNR LINK EXP</item>
+        <item>SHEKHAWATI EXP</item>
+        <item>SHESHADRI EXP</item>
+        <item>SHIMOGA EXPRESS</item>
+        <item>SHIPRA EXP</item>
+        <item>SHIPRA EXPRESS</item>
+        <item>SHIV GANGA EXP</item>
+        <item>SHM DIGHA EXP</item>
+        <item>SHM LTT EXPRESS</item>
+        <item>SHRAMIK EXPRESS</item>
+        <item>SHRAMJEEVI EXP</item>
+        <item>SHRAMJEVI N EXP</item>
+        <item>SHRAM SHKTI EXP</item>
+        <item>SIDDHESHWAR EXP</item>
+        <item>SIDDHESWAR EXP</item>
+        <item>SIMHADRI EXP</item>
+        <item>SIMHADRI EXPRESS</item>
+        <item>SIMHAPURI EXP</item>
+        <item>SINHAGAD EXP</item>
+        <item>S KRANTI SUP EXP</item>
+        <item>SLN DLI EXP</item>
+        <item>SMET MYSORE EXP</item>
+        <item>SML KLK EXPRESS</item>
+        <item>SOMNATH EXPRESS</item>
+        <item>SOUTH BIHAR EXP</item>
+        <item>SRE LKO EXPRESS</item>
+        <item>SRIJAGANNATHEXP</item>
+        <item>ST BHAGALPUR EXP</item>
+        <item>STEEL EXP</item>
+        <item>STEEL EXPRESS</item>
+        <item>SUBARNAREKHA EXP</item>
+        <item>SULTANPUR EXP</item>
+        <item>SURAT BDTS EXP</item>
+        <item>SURYANAGARI EXP</item>
+        <item>SURYA NAGRI EXP</item>
+        <item>SWARAJ EXPRESS</item>
+        <item>SWATANTRTA S EXP</item>
+        <item>TAJ EXPRESS</item>
+        <item>TAMIL NADU EXP</item>
+        <item>TAPASWINI EXP</item>
+        <item>TAPASWINI EXPRES</item>
+        <item>TAPOVAN EXP</item>
+        <item>TAPOVAN EXPRESS</item>
+        <item>TAPTI GANGA EXP</item>
+        <item>TATA ALLP EXP</item>
+        <item>TATA-CPR EXP</item>
+        <item>TATA JAT EXP</item>
+        <item>TATA PNBE EXP</item>
+        <item>TATA YPR EXP</item>
+        <item>TEESTA TORSA EXP</item>
+        <item>TENKASI EXPRESS</item>
+        <item>TESTA TORSA EXP</item>
+        <item>THIRUKKURAL EXP</item>
+        <item>TIPPU EXPRESS</item>
+        <item>TIRHUT EXPRESS</item>
+        <item>TIRUCHCHI EXP</item>
+        <item>TIRUKKURAL EXP</item>
+        <item>TIRUMALA EXP</item>
+        <item>TIRUPATHI EXP</item>
+        <item>TIRUPATHY EXP</item>
+        <item>TPTY BSP EXP</item>
+        <item>TPTY PURI EXP</item>
+        <item>TRIBENI EXPRESS</item>
+        <item>TRISHATABDI EXP</item>
+        <item>TRIVANDRAM EXP</item>
+        <item>TRIVANDRUM EXP</item>
+        <item>TRIVANDRUM MAIL</item>
+        <item>TRIVENI EXP</item>
+        <item>TSI CHENNAI EXP</item>
+        <item>TULSI EXPRESS</item>
+        <item>TUNGABHADRA EXP</item>
+        <item>TUTICORIN EXP</item>
+        <item>TVC CHENNAI EXP</item>
+        <item>U/ABHATOOFANEXP</item>
+        <item>U A TOOFAN EXP</item>
+        <item>UBL CHENNAI EXP</item>
+        <item>UBL MRJ EXPRESS</item>
+        <item>UBL VSG LINK EXP</item>
+        <item>UDHYOGKARMI EXP</item>
+        <item>UDYAN EXP</item>
+        <item>UDYAN EXPRESS</item>
+        <item>UDYOGKARMI EXP</item>
+        <item>UDYOG NAGRI EXP</item>
+        <item>UDZ ADI EXPRESS</item>
+        <item>UDZ JP SUP EXP</item>
+        <item>UJJAINI EXPRESS</item>
+        <item>UJJAIYANI EXP</item>
+        <item>UMB MFP EXPRESS</item>
+        <item>UNCHAHAR EXP</item>
+        <item>UPASANA EXPRESS</item>
+        <item>UTKAL EXPRESS</item>
+        <item>UTR SAMPRK K EXP</item>
+        <item>UTTARANCHAL EXP</item>
+        <item>UTTAR BANGA EXP</item>
+        <item>VADODARA EXP</item>
+        <item>VAIGAI EXP</item>
+        <item>VAISHALI EXP</item>
+        <item>VANANCHAL EXP</item>
+        <item>VANCHINAD EXP</item>
+        <item>VARUNA EXP</item>
+        <item>VARUNA EXPRESS</item>
+        <item>VENAD EXPRESS</item>
+        <item>VENKATADRI EXP</item>
+        <item>VERAVAL EXPRESS</item>
+        <item>VIBHUTI EXPRESS</item>
+        <item>VIDARBHA EXPRESS</item>
+        <item>VIKRAMSHILA EXP</item>
+        <item>VINDHYACHAL EXP</item>
+        <item>VISAKHA EXP</item>
+        <item>VISAKHA EXPRESS</item>
+        <item>VRL JABALPUR EXP</item>
+        <item>VRL JBP EXPRESS</item>
+        <item>VRL TVC EXPRESS</item>
+        <item>VSG BZA EXPRESS</item>
+        <item>VSG CHENNAI EXP</item>
+        <item>VSG HOWRAH EXP</item>
+        <item>VSG UBL LINK EXP</item>
+        <item>VSKP KRBA EXP</item>
+        <item>VSKP NZB EXPRESS</item>
+        <item>VSKP NZM HKG EXP</item>
+        <item>VSKP SWRN J EXP</item>
+        <item>WEST COAST EXP</item>
+        <item>YERCAUD EXP</item>
+        <item>YERCAUD EXPRESS</item>
+        <item>YESVANTPUR EXP</item>
+        <item>YPR BIWEEKLY EXP</item>
+        <item>YPR BSP EXPRESS</item>
+        <item>YPR GUWAHATI EXP</item>
+        <item>YPR HATIA EXP</item>
+        <item>YPR HOWRAH EXP</item>
+        <item>YPR S KRNTI EXP</item>
+        <item>YPR TATA EXP</item>
+        <item>YPR VASCO EXP</item>
+        <item>ZIYARAT EXPRESS</item>
+        </string-array>
     <string-array name="Stations">
 
         <item>AMLAI - AAL </item>
