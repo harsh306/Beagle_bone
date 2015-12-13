@@ -2275,7 +2275,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450012767705</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Train_name1">
+      <created>1450012810003</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1450012810003</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2380,7 +2386,8 @@
     <MESSAGE value="from_to" />
     <MESSAGE value=" db" />
     <MESSAGE value="Train_name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Train_name" />
+    <MESSAGE value="Train_name1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Train_name1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
