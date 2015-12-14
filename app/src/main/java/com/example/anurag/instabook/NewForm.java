@@ -9,8 +9,10 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentActivity;
@@ -127,7 +129,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         super.onCreateView(inflater,container,savedInstanceState);
 
         // Inflate thgetSupportFragmentManager().beginTransaction().add(myFragment, "Some Tag").commit();e layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_new_form, container, false);
+        final View view= inflater.inflate(R.layout.fragment_new_form, container, false);
         //(getActivity()).startActionMode(new NewForm());
         view.setSelected(true);
         this.mview=view;
@@ -149,7 +151,27 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 fragmentManagera.beginTransaction();
         fragmentTransaction.addToBackStack(null);
+        Button passe=(Button)view.findViewById(R.id.addPassenger);
+        passe.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                SQLDBhelper sql =new SQLDBhelper(getActivity().getApplicationContext());
+                String a=new Integer(sql.numberOfRows()).toString();
 
+                Snackbar.make(getView(), a, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+
+                if(sql.numberOfRows()<6) {
+                    Intent intent = new Intent(getActivity().getApplicationContext(), FloatingForm.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Snackbar.make(view, "Limit is to Add only 6", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
         pDisplayDate = (TextView)view.findViewById(R.id.dateText);
         pPickDate = (Button) view.findViewById(R.id.journeydate);
         final DatePickerDialog datePicker = new DatePickerDialog(getContext(),
@@ -221,7 +243,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        Log.e("msgg","you are cought");
+        Log.e("msgg", "you are cought");
     }
 
     public interface OnBackPressedListener {
@@ -448,7 +470,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
 
         //MenuItem mp= (MenuItem) m.getMenuInflater();
         Toast.makeText(mview.getContext(),"onStart",Toast.LENGTH_LONG).show();
-        final Button button = (Button) mview.findViewById(R.id.button5);
+        final Button button = (Button) mview.findViewById(R.id.saveForm);
         final TextView date =(TextView)mview.findViewById(R.id.dateText);
         final Spinner ticket_t=(Spinner)mview.findViewById(R.id.spinner);
         final EditText trainno =(EditText)mview.findViewById(R.id.trainno);
@@ -458,6 +480,12 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         final Spinner class_t=(Spinner)mview.findViewById(R.id.class_t);
         final EditText phone=(EditText)mview.findViewById(R.id.phone);
         final EditText form_name =(EditText)mview.findViewById(R.id.formname);
+        final Spinner card_t =(Spinner)mview.findViewById(R.id.card_t);
+        final EditText card_n=(EditText)mview.findViewById(R.id.card_n);
+        final EditText holder_name=(EditText)mview.findViewById(R.id.holder_name);
+        final EditText expiry_M=(EditText)mview.findViewById(R.id.expiry_M);
+        final EditText expiry_Y=(EditText)mview.findViewById(R.id.expiry_Y);
+        final EditText cvv=(EditText)mview.findViewById(R.id.cvv);
         //form_name.setHighlightColor(Integer.parseInt("#FF4081"));
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -465,7 +493,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
             public void onClick(View v) {
 
                 SQLDBhelper ha = new SQLDBhelper(mview.getContext());
-                //ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString());
+                ha.insertForm(form_name.getText().toString(), from_s.getText().toString(), to_s.getText().toString(), date.getText().toString(), class_t.getSelectedItem().toString(), quota.getSelectedItem().toString(), phone.getText().toString(), ticket_t.getSelectedItem().toString(), trainno.getText().toString(),card_n.getText().toString(),holder_name.getText().toString(),cvv.getText().toString(),expiry_M.getText().toString(),expiry_Y.getText().toString(),card_t.getSelectedItem().toString());
                 String a = new Integer(ha.numberOfRowsForm()).toString();
                 Toast.makeText(activity.getApplicationContext(), "Form" + form_name.getText().toString() + "is saved" + a + " ", Toast.LENGTH_LONG).show();
                 ItemFragment fragment = new ItemFragment();

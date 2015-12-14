@@ -56,6 +56,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     mListener.onListFragmentInteraction(holder.mItem);
                     Toast.makeText(view.getContext(),"i am "+holder.mContentView.getText().toString(),Toast.LENGTH_LONG).show();
                     //New fragment
+
                 }
             }
         });

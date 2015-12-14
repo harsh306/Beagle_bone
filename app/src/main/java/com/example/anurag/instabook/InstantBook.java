@@ -42,11 +42,11 @@ public class InstantBook extends AppCompatActivity
         setContentView(R.layout.activity_instant_book);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button btn =(Button)findViewById(R.id.button5);
+        Button btn =(Button)findViewById(R.id.saveForm);
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,8 +66,8 @@ public class InstantBook extends AppCompatActivity
                             .setAction("Action", null).show();
                 }
             }
-        });
-
+        });*//*
+*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

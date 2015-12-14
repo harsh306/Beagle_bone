@@ -49,7 +49,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         );
         db.execSQL(
                 "create table from_to " +
-                        "(id integer primary key autoincrement,form_name text,from_s text,to_s text,date text ,class_t text,quota text,phone text,ticket_t text,count integer,trainno text,train_n text,timestamp text,card_no text,holder_name text,cvv text,expiry text,card_t text)"
+                        "(id integer primary key autoincrement,form_name text,from_s text,to_s text,date text ,class_t text,quota text,phone text,ticket_t text,count integer,trainno text,train_n text,timestamp text,card_no text,holder_name text,cvv text,expiry_M text,expiry_Y text,card_t text)"
         );
     }
 
@@ -74,7 +74,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         db.insert("passes", null, contentValues);
         return true;
     }
-    public boolean insertForm (String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t,String trainno,String card_no,String holder_name,String cvv,String expiry,String card_t)
+    public boolean insertForm (String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t,String trainno,String card_no,String holder_name,String cvv,String expiry_M,String expiry_Y,String card_t)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -90,7 +90,8 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("card_no",card_no);
         contentValues.put("holder_name",holder_name);
         contentValues.put("card_t",card_t);
-        contentValues.put("expiry",expiry);
+        contentValues.put("expiry_M",expiry_M);
+        contentValues.put("expiry_Y",expiry_Y);
         contentValues.put("cvv",cvv);
         db.insert("from_to", null, contentValues);
         return true;
@@ -213,7 +214,7 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         db.update("passes", contentValues, "id = ? ", new String[]{Integer.toString(id)});
         return true;
     }
-    public boolean updateForm  (Integer id,String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t,Integer count,String card_no,String holder_name,String cvv,String expiry,String card_t)
+    public boolean updateForm  (Integer id,String form_name, String from_s, String to_s,String date,String class_t,String quota,String phone,String ticket_t,Integer count,String card_no,String holder_name,String cvv,String expiry_M,String expiry_Y,String card_t)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -229,7 +230,8 @@ public class SQLDBhelper extends SQLiteOpenHelper {
         contentValues.put("card_no",card_no);
         contentValues.put("holder_name",holder_name);
         contentValues.put("card_t",card_t);
-        contentValues.put("expiry",expiry);
+        contentValues.put("expiry_M",expiry_M);
+        contentValues.put("expiry_Y",expiry_Y);
         contentValues.put("cvv",cvv);
         db.update("from_to", contentValues, "id = ? ", new String[]{Integer.toString(id)});
         return true;
