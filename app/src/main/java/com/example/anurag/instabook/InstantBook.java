@@ -95,8 +95,8 @@ public class InstantBook extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.instant_book, menu);
-        MenuItem save=menu.findItem(R.id.save);
+       // getMenuInflater().inflate(R.menu.instant_book, menu);
+        //MenuItem save=menu.findItem(R.id.save);
         return true;
     }
     @Override
@@ -268,7 +268,7 @@ public class InstantBook extends AppCompatActivity
 
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        switch (item.getItemId()) {
+        /*switch (item.getItemId()) {
             case R.id.save:
                 Toast.makeText(getApplicationContext(),"Did it ",Toast.LENGTH_LONG).show();
                 mode.finish(); // Action picked, so close the CAB
@@ -276,8 +276,8 @@ public class InstantBook extends AppCompatActivity
             default:
                 return false;
 
-        }
-
+        }*/
+        return false;
 
     }
 

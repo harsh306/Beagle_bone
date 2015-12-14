@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anurag.instabook.ItemFragment.OnListFragmentInteractionListener;
 import com.example.anurag.instabook.dummy.DummyContent.DummyItem;
@@ -36,7 +37,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        hget=new SQLDBhelper(view.getContext());
+        //hget=new SQLDBhelper(view.getContext());
         //hget.
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
@@ -45,10 +46,12 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
+                    Toast.makeText(view.getContext(),"i am "+holder.mContentView.getText().toString(),Toast.LENGTH_LONG).show();
                 }
             }
         });
