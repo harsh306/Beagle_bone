@@ -1,5 +1,8 @@
 package com.example.anurag.instabook;
 
+import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +30,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         mListener = listener;
     }
     SQLDBhelper hget;
-    View view;
+    public View view;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
          view = LayoutInflater.from(parent.getContext())
@@ -52,6 +55,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
                     Toast.makeText(view.getContext(),"i am "+holder.mContentView.getText().toString(),Toast.LENGTH_LONG).show();
+                    //New fragment
                 }
             }
         });

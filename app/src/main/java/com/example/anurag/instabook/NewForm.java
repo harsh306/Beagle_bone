@@ -132,7 +132,7 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         view.setSelected(true);
         this.mview=view;
         activity = getActivity();
-        ((InstantBook)activity).setOnBackPressedListener(new NewFormListner((FragmentActivity) activity));
+       // ((InstantBook)activity).setOnBackPressedListener(new NewFormListner((FragmentActivity) activity));
         Calendar cal = Calendar.getInstance(TimeZone.getDefault());
         //Date Picking
 
@@ -264,13 +264,13 @@ public class NewForm extends Fragment implements AdapterView.OnItemSelectedListe
         super.onDetach();
         mListener = null;
     }
-//
+    //
 //    @Override
 //    public void onClick(View v) {
 //
 //
 //    }
-protected ActionMode m;
+    protected ActionMode m;
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
 
@@ -278,14 +278,14 @@ protected ActionMode m;
 
         //if (isLayout(v)) {
 
-            MenuInflater inflater = mode.getMenuInflater();
-            inflater.inflate(R.menu.context_menu, menu);
-            m=mode;
+        MenuInflater inflater = mode.getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
+        m=mode;
         //}
 
         return true;
 
-       // return true;
+        // return true;
     }
 
     @Override
@@ -331,10 +331,10 @@ protected ActionMode m;
 //  return false;
     }
 
-       /// NewFormListner n =new NewFormListner((FragmentActivity) activity);
+    /// NewFormListner n =new NewFormListner((FragmentActivity) activity);
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-       //n.doBack();
+        //n.doBack();
         Log.d("Hello", "It's me again");
 
         if (view == null && getActivity()==null ){
@@ -493,14 +493,14 @@ protected ActionMode m;
 //                return ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_GROUP;
 //            }
 //        });
-            }
+    }
 
-            public void onPause() {
-                super.onPause();
-                Log.d(msg, "On Pause Event");
-                Toast.makeText(mview.getContext(), "onpause", Toast.LENGTH_LONG).show();
+    public void onPause() {
+        super.onPause();
+        Log.d(msg, "On Pause Event");
+        Toast.makeText(mview.getContext(), "onpause", Toast.LENGTH_LONG).show();
 
-            }
+    }
 
 
-        }
+}

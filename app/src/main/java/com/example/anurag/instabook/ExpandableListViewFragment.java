@@ -178,6 +178,8 @@ public class ExpandableListViewFragment extends Fragment {
         super.onStart();
         Log.d(msg, "The onStart() event");prepareListData();
         expListView = (ExpandableListView)getView().findViewById(R.id.lvExp);
+        expListView.setTranscriptMode(ExpandableListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+       // expListView.setStackFromBottom(true);
         // preparing list data
         prepareListData();
         listAdapter = new ExpandableListAdapter2(this.getContext(), listDataHeader, listDataChild);

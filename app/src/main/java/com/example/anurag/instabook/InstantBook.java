@@ -31,11 +31,11 @@ import com.example.anurag.instabook.dummy.DummyContent;
 
 public class InstantBook extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,ActionMode.Callback,NewForm.OnFragmentInteractionListener,HelloFragment.OnFragmentInteractionListener, ExpandableListViewFragment.OnFragmentInteractionListener,ItemFragment.OnListFragmentInteractionListener{
-    protected NewForm.OnBackPressedListener onBackPressedListener;
+   /* protected NewForm.OnBackPressedListener onBackPressedListener;
     public void setOnBackPressedListener(NewForm.OnBackPressedListener onBackPressedListener) {
         this.onBackPressedListener = onBackPressedListener;
     }
-    @Override
+   */ @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);

@@ -17,14 +17,13 @@ import android.widget.Toast;
 /**
  * Created by harsh on 12/12/15.
  */
-public class NewFormListner implements NewForm.OnBackPressedListener,ActionMode.Callback {
+public class NewFormListner implements ActionMode.Callback {
     private final FragmentActivity activity;
 
     public NewFormListner(FragmentActivity activity) {
         this.activity = activity;
     }
     ActionMode mode=null;
-    @Override
     public  void doBack() {
         TextView date =(TextView)activity.findViewById(R.id.dateText);
         Spinner ticket_t=(Spinner)activity.findViewById(R.id.spinner);

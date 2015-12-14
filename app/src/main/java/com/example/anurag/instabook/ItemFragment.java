@@ -1,5 +1,6 @@
 package com.example.anurag.instabook;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -54,11 +55,11 @@ public class ItemFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
-
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+         view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
         SQLDBhelper hget = new SQLDBhelper(view.getContext());
 
@@ -76,7 +77,14 @@ public class ItemFragment extends Fragment {
         }
         return view;
     }
+    /*public android.support.v4.app.FragmentTransaction hello(){
+        //HelloFragment fragment = new HelloFragment();
+        //Fragment fragment = new tasks();
 
+        android.support.v4.app.FragmentManager fragmentManager =getActivity().getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        return fragmentTransaction;
+    }*/
 
     @Override
     public void onAttach(Context context) {

@@ -1,11 +1,5 @@
-<ScrollView
-    android:id="@+id/scrollView"
-
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,19 +11,27 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/r2"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.example.anurag.instabook.DisplayData2"
+        tools:context="com.example.anurag.instabook.InstantBook"
         tools:showIn="@layout/activity_display_data2">
 
+        <ScrollView
+            android:id="@+id/scrollView"
 
-            <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
+                android:layout_height="match_parent"
 
                 android:layout_alignParentTop="true">
 
@@ -165,37 +167,98 @@
                     android:id="@+id/formname"
                     android:hint="Form Name"
                     />
-                <Button
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Payment Details"
+                    android:id="@+id/pDetails"
+                    android:layout_below="@+id/formname"
+                    android:layout_centerHorizontal="true" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:entries="@array/card_t"
+                    android:id="@+id/card_t"
+                    android:layout_below="@+id/pDetails"
+                    />
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Card Number"
+                    android:id="@+id/card_n"
+                    android:maxLength="19"
+                    android:layout_below="@+id/card_t"
+                    android:inputType="number"
+                    />
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Name On Card"
+                    android:id="@+id/holder_name"
+                    android:layout_below="@+id/card_n"
+                    />
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/formname"
-                    android:text="SAVE FORM"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Expiry Date"
+                    android:id="@+id/expiry_t"
+                    android:layout_below="@+id/holder_name"
+                    />
+                <EditText
+                    android:layout_below="@+id/expiry_t"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:hint="MM"
+                    android:id="@+id/expiry_M"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    />
+                <EditText
+                    android:layout_below="@+id/expiry_t"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:hint="YYYY"
+                    android:id="@+id/expiry_Y"
+                    android:inputType="number"
+                    android:layout_toEndOf="@+id/expiry_M"
+                    android:maxLength="4"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/expiry_M"
+                    android:hint="CVV"
+                    android:inputType="number"
+                    android:id="@+id/cvv"
+                    android:maxLength="3"
+                    />
 
-                    android:id="@+id/button5"
-                    android:layout_gravity="right|bottom" />
 
-                <FrameLayout
-                    android:id="@+id/flContent2"
-                    android:layout_width="match_parent"
+        </RelativeLayout>
 
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right|top"
-                    android:layout_below="@+id/button5"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-
-
-
-            </RelativeLayout>
-
-
+        </ScrollView>
+        <FrameLayout
+            android:id="@+id/flContent2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="right|top"
+            android:layout_below="@+id/scrollView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flContent2"
+            android:text="SAVE FORM"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/button5"
+            android:layout_gravity="right|bottom" />
 
     </RelativeLayout>
 
-
-    </FrameLayout>
-
+</FrameLayout>
 
 
-</ScrollView>
+
