@@ -9,17 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b9e3d7-9a25-4e67-bdb9-ef8a3c271afe" name="Default" comment="Layout2.2">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/InstantBook.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/InstantBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/MyItemRecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/MyItemRecyclerViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/NewForm.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/NewForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/SQLDBhelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/SQLDBhelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_instant_book.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_instant_book.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_form.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_form.xml" />
+    <list default="true" id="f7b9e3d7-9a25-4e67-bdb9-ef8a3c271afe" name="Default" comment="Layout2.5">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Insta_Book.iws" />
@@ -41,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SQLDBhelper.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SQLDBhelper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/SQLDBhelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="236" selection-start-line="76" selection-start-column="236" selection-end-line="76" selection-end-column="236" />
+            <state vertical-scroll-proportion="0.59173125">
+              <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -117,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyItemRecyclerViewAdapter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyItemRecyclerViewAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/MyItemRecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60422164">
+            <state vertical-scroll-proportion="0.0">
               <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding />
             </state>
@@ -192,7 +182,7 @@
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="harsh" />
+      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="instabook" target-branch="harsh" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -2384,7 +2374,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450073676884</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Layout2.5">
+      <created>1450079734006</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1450079734006</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2408,11 +2404,11 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42028984" sideWeight="0.4725537" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34138486" sideWeight="0.47732696" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34138486" sideWeight="0.47732696" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42028984" sideWeight="0.5274463" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.49545455" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.49545455" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27844074" sideWeight="0.24959743" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.47891805" order="13" side_tool="false" content_ui="tabs" />
@@ -2494,7 +2490,8 @@
     <MESSAGE value="List" />
     <MESSAGE value="Layout2.1" />
     <MESSAGE value="Layout2.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout2.2" />
+    <MESSAGE value="Layout2.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layout2.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2879,14 +2876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/SQLDBhelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="236" selection-start-line="76" selection-start-column="236" selection-end-line="76" selection-end-column="236" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/NewForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.419355">
@@ -2991,8 +2980,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/MyItemRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60422164">
+        <state vertical-scroll-proportion="0.0">
           <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/anurag/instabook/SQLDBhelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59173125">
+          <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
           <folding />
         </state>
       </provider>
